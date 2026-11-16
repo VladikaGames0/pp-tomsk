@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PP TOMSK — Доставка правильного питания в Томске и Северске</title>
+  <meta name="description" content="Готовые рационы правильного питания с расчётом КБЖУ от 1000 до 2500 ккал. Свежая закупка в день доставки, без сахара, бесплатная доставка по Томску и Северску. Скидка 10% от 2 недель!" />
+  <meta name="theme-color" content="#0b100e" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="PP TOMSK — Доставка правильного питания (Томск и Северск)" />
+  <meta property="og:description" content="Питаемся правильно — худеем вкусно! 5 тарифов от 1000 до 2500 ккал с расчётом КБЖУ. Бесплатная доставка, скидка 10% при оплате на 2 недели." />
+  <meta property="og:image" content="assets/images/hero-studio.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2362b836'/%3E%3Cpath d='M35 45c8.5-1.5 14-8.5 14-18-9.5 0-16.5 5.5-18 14-.5 2.5 1.5 4.5 4 4z' fill='%23fff'/%3E%3Cpath d='M27 36c-6-1-10-6-10-13 7 0 12 4 13 10 .3 1.8-1.2 3.3-3 3z' fill='%23fff' opacity='.92'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Верхняя плашка со спецпредложением -->
+  <div class="promo-bar">
+    <div class="container promo-bar__inner">
+      <span class="promo-bar__badge">Выгода −10%</span>
+      <span>Скидка <strong>10%</strong> при оплате рациона на 2 недели · Бесплатная доставка по <strong>Томску и Северску</strong></span>
+      <a href="#tariffs" class="promo-bar__link">Смотреть прайс →</a>
+    </div>
+  </div>
+
+  <!-- Шапка сайта -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="PP TOMSK — На главную">
+        <img src="assets/images/logo.webp" alt="Логотип PP TOMSK" class="brand__logo" width="46" height="46" />
+        <div class="brand__text">
+          <span class="brand__name">PP TOMSK</span>
+          <span class="brand__city">Томск · Северск</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="#tariffs" class="main-nav__link">Тарифы</a>
+        <a href="#menu" class="main-nav__link">Меню и фото</a>
+        <a href="#delivery" class="main-nav__link">Доставка</a>
+        <a href="#contacts" class="main-nav__link">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+79234331183" class="header-phone">
+          <span class="header-phone__num">8-923-433-11-83</span>
+          <span class="header-phone__hint"><span class="online-dot"></span> Принимаем заказы</span>
+        </a>
+
+        <div class="header-socials" aria-label="Соцсети и мессенджеры">
+          <!-- MAX -->
+          <a href="https://max.ru/u/f9LHodD0cOKltUm-97KanH05-3f_t5B6QdtOZZHx1U90Er9B9gcWv1d9wYU" target="_blank" rel="noopener noreferrer" class="icon-social" title="Мы в MAX" aria-label="MAX">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 18V6L9.5 13.5L12 10L14.5 13.5L20 6V18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <!-- VK -->
+          <a href="https://vk.ru/pravilnoepitanietomsk" target="_blank" rel="noopener noreferrer" class="icon-social" title="Группа ВКонтакте" aria-label="ВКонтакте">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.78 17.5c-5.46 0-8.58-3.75-8.71-9.99h2.74c.09 4.58 2.11 6.52 3.71 6.92V7.51h2.58v3.95c1.58-.17 3.24-1.97 3.8-3.95h2.58c-.43 2.44-2.23 4.24-3.51 4.98 1.28.6 3.33 2.17 4.11 5.01h-2.84c-.61-1.9-2.13-3.37-4.14-3.57v3.57h-.32z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/pp_tomsk?psln=MXFwc2ZjajNldGhlcQ==" target="_blank" rel="noopener noreferrer" class="icon-social" title="Instagram @pp_tomsk" aria-label="Instagram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
+              <circle cx="12" cy="12" r="4.2"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <!-- Telegram -->
+          <a href="https://t.me/PP_TOMSK" target="_blank" rel="noopener noreferrer" class="icon-social" title="Telegram @PP_TOMSK" aria-label="Telegram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.66 4.44 3.43 11.09c-1.18.47-1.17 1.13-.21 1.42l4.42 1.38 10.23-6.45c.48-.29.92-.13.56.19l-8.29 7.48-.31 4.55c.45 0 .65-.21.9-.45l2.16-2.1 4.49 3.31c.83.46 1.42.22 1.63-.77l2.95-13.89c.3-1.21-.46-1.76-1.3-1.32z"/>
+            </svg>
+          </a>
+        </div>
+
+        <button type="button" class="btn btn--primary btn--sm" data-open-order>
+          Заказать
+        </button>
+
+        <button type="button" class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <nav class="mobile-drawer__nav">
+        <a href="#tariffs" class="mobile-drawer__link">Тарифы и цены</a>
+        <a href="#menu" class="mobile-drawer__link">Меню и живые фото</a>
+        <a href="#delivery" class="mobile-drawer__link">Условия доставки</a>
+        <a href="#contacts" class="mobile-drawer__link">Контакты и соцсети</a>
+      </nav>
+      <div class="mobile-drawer__contacts">
+        <a href="tel:+79234331183" class="btn btn--outline-dark">📞 8-923-433-11-83</a>
+        <button type="button" class="btn btn--primary" data-open-order>Заказать рацион</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Главный экран (Hero) -->
+  <main id="top">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="eyebrow">
+            <span class="online-dot"></span>
+            Доставка правильного питания · Томск и Северск
+          </div>
+
+          <h1 class="hero__title">
+            Питаемся правильно —
+            <span class="hero__title-accent">худеем вкусно!</span>
+          </h1>
+
+          <p class="hero__subtitle">
+            Готовые сбалансированные рационы с расчётом КБЖУ на каждый день. Закупаем свежие продукты утром в день доставки, готовим без белого сахара и вкусовых добавок, бесплатно привозим домой или в офис.
+          </p>
+
+          <div class="hero__cta-row">
+            <button type="button" class="btn btn--primary btn--lg" data-open-order>
+              Заказать рацион
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <a href="#tariffs" class="btn btn--outline-dark">
+              Выбрать тариф · от 900 ₽/день
+            </a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="hero-stat">
+              <div class="hero-stat__val num">5 <span>тарифов</span></div>
+              <div class="hero-stat__label">От 1 000 до 2 500 ккал под вашу цель</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat__val num">8 <span>недель</span></div>
+              <div class="hero-stat__label">Разнообразное меню без однообразия</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat__val num">0 ₽ <span>доставка</span></div>
+              <div class="hero-stat__label">Включена в цену по Томску и Северску</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero-float hero-float--top">
+            <div class="hero-float__icon">🌿</div>
+            <div>
+              <div class="hero-float__title">Свежая закупка в день готовки</div>
+              <div class="hero-float__sub">Без сахара и замороженных заготовок</div>
+            </div>
+          </div>
+
+          <div class="hero__img-frame">
+            <img src="assets/images/hero-studio.webp" alt="Сбалансированный рацион правильного питания PP TOMSK" class="hero__img" width="1312" height="816" />
+          </div>
+
+          <div class="hero-float hero-float--bottom">
+            <div class="hero-float__icon">🔥</div>
+            <div>
+              <div class="hero-float__title">Скидка 10% на 2 недели</div>
+              <div class="hero-float__sub">Экономия до 2 450 ₽ за 14 дней питания</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Наши принципы качества -->
+    <section class="principles" aria-label="Преимущества PP TOMSK">
+      <div class="container principles__grid">
+        <article class="principle-card">
+          <div class="principle-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+              <path d="M20.66 7A10 10 0 0 0 14 2.2v7.8h7.8a10 10 0 0 0-1.14-3z"/>
+            </svg>
+          </div>
+          <h2 class="principle-card__title">Расчёт КБЖУ в каждом рационе</h2>
+          <p class="principle-card__desc">Строгий баланс белков, жиров и углеводов: худейте, поддерживайте форму или тренируйтесь без подсчёта калорий.</p>
+        </article>
+
+        <article class="principle-card">
+          <div class="principle-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+          </div>
+          <h2 class="principle-card__title">Закупка в день доставки</h2>
+          <p class="principle-card__desc">Покупаем охлаждённые продукты строго под оплаченные заказы клиентов — никаких «вчерашних» остатков на кухне.</p>
+        </article>
+
+        <article class="principle-card">
+          <div class="principle-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <h2 class="principle-card__title">Без сахара и добавок</h2>
+          <p class="principle-card__desc">Чистые и понятные составы без белого сахара, усилителей вкуса и замороженных полуфабрикатов.</p>
+        </article>
+
+        <article class="principle-card">
+          <div class="principle-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h2 class="principle-card__title">Свобода от готовки и посуды</h2>
+          <p class="principle-card__desc">Экономьте до 12 часов в неделю для семьи, работы и отдыха — просто разогрейте готовое блюдо за 2 минуты.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Тарифы -->
+    <section class="tariffs-section" id="tariffs">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag section-tag--light">Актуальный прайс</span>
+          <h2 class="section-title section-title--light">Тарифы правильного питания</h2>
+          <p class="section-desc section-desc--light">
+            Выберите подходящую калорийность — бесплатная вечерняя доставка по <strong>Томску и Северску</strong> уже включена в стоимость каждого рациона.
+          </p>
+        </div>
+
+        <!-- Переключатель выгоды 2 недель -->
+        <div class="billing-toggle-wrap">
+          <div class="billing-toggle" role="tablist" aria-label="Выбор длительности заказа">
+            <button type="button" class="billing-toggle__btn is-active" data-billing="standard">
+              Стандартная цена (за день)
+            </button>
+            <button type="button" class="billing-toggle__btn" data-billing="twoweeks">
+              Оплата на 2 недели
+              <span class="discount-chip">−10% СКИДКА</span>
+            </button>
+          </div>
+          <div class="billing-toggle__note" id="billingNote">
+            Цены актуальны с 10.10.2026 · Бесплатная доставка по Томску и Северску включена в тариф
+          </div>
+        </div>
+
+        <!-- Сетка 5 тарифов -->
+        <div class="tariffs-grid">
+          <!-- 1. 1000 ккал -->
+          <article class="tariff-card" data-kcal="1000">
+            <div>
+              <div class="tariff-card__top-row">
+                <span class="tariff-card__tier">Тариф Light</span>
+                <span class="tariff-card__meals-pill">3 блюда в день</span>
+              </div>
+              <h3 class="tariff-card__kcal">1 000 <small>ккал</small></h3>
+              <p class="tariff-card__goal">Быстрое и лёгкое снижение веса</p>
+
+              <div class="tariff-card__macros" aria-label="Ориентир БЖУ">
+                <div>
+                  <span class="macro-item__label">Белки</span>
+                  <span class="macro-item__val">~75 г</span>
+                </div>
+                <div>
+                  <span class="macro-item__label">Жиры</span>
+                  <span class="macro-item__val">~32 г</span>
+                </div>
+                <div>
+                  <span class="macro-item__label">Углеводы</span>
+                  <span class="macro-item__val">~102 г</span>
+                </div>
+              </div>
+
+              <ul class="tariff-card__features">
+                <li><span class="check-icon">✓</span> Завтрак, сытный обед и лёгкий ужин</li>
+                <li><span class="check-icon">✓</span> Дефицит калорий без чувства тяжести</li>
+                <li><span class="check-icon">✓</span> Доставка по Томску и Северску — 0 ₽</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="tariff-card__price-box">
+                <div class="tariff-card__price-row">
+                  <span class="tariff-card__price" data-role="price">1 000 ₽</span>
+                  <span class="tariff-card__old-price" data-role="old-price" style="display:none">1 000 ₽</span>
+                  <span class="tariff-card__per">/ день</span>
+                </div>
+                <div class="tariff-card__subnote" data-role="subnote">От 2 недель (−10%): 900 ₽ / день</div>
+              </div>
+
+              <button type="button" class="btn btn--dark-solid tariff-card__btn" data-open-order data-order-tariff="1000">
+                Заказать · 1 000 ккал
+              </button>
+            </div>
+          </article>
+
+          <!-- 2. 1300 ккал -->
+          <article class="tariff-card" data-kcal="1300">
+            <div>
+              <div class="tariff-card__top-row">
+                <span class="tariff-card__tier">Тариф Slim</span>
+                <span class="tariff-card__meals-pill">4 блюда в день</span>
+              </div>
+              <h3 class="tariff-card__kcal">1 300 <small>ккал</small></h3>
+              <p class="tariff-card__goal">Комфортное похудение без голода</p>
+
+              <div class="tariff-card__macros" aria-label="Ориентир БЖУ">
+                <div>
+                  <span class="macro-item__label">Белки</span>
+                  <span class="macro-item__val">~95 г</span>
+                </div>
+                <div>
+                  <span class="macro-item__label">Жиры</span>
+                  <span class="macro-item__val">~42 г</span>
+                </div>
+                <div>
+                  <span class="macro-item__label">Углеводы</span>
+                  <span class="macro-item__val">~135 г</span>
+                </div>
+              </div>
+
+              <ul class="tariff-card__features">
+                <li><span class="check-icon">✓</span> Завтрак, второй завтрак, обед и ужин</li>
+                <li><span class="check-icon">✓</span> Плавный уход лишнего веса и объёмов</li>
+                <li><span class="check-icon">✓</span> Доставка по Томску и Северску — 0 ₽</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="tariff-card__price-box">
+                <div class="tariff-card__price-row">
+                  <span class="tariff-card__price" data-role="price">1 150 ₽</span>
+                  <span class="tariff-card__old-price" data-role="old-price" style="display:none">1 150 ₽</span>
+                  <span class="tariff-card__per">/ день</span>
+                </div>
+                <div class="tariff-card__subnote" data-role="subnote">От 2 недель (−10%): 1 035 ₽ / день</div>
+              </div>
+
+              <button type="button" class="btn btn--dark-solid tariff-card__btn" data-open-order data-order-tariff="1300">
+                Заказать · 1 300 ккал
+              </button>
+            </div>
+          </article>
+
+          <!-- 3. 1500 ккал (Хит выбора) -->
+          <article class="tariff-card tariff-card--featured" data-kcal="1500">
+            <span class="tariff-card__popular">★ Хит выбора</span>
+            <div>
+              <div class="tariff-card__top-row">
+                <span class="tariff-card__tier">Тариф Balance</span>
+                <span class="tariff-card__meals-pill">5 блюд в день</span>
+              </div>
+              <h3 class="tariff-card__kcal">1 500 <small>ккал</small></h3>
+              <p class="tariff-card__goal">Золотая середина: стройность и тонус</p>
+
+              <div class="tariff-card__macros" aria-label="Ориентир БЖУ">
+                <div>
+                  <span class="macro-item__label">Белки</span>
+                  <span class="macro-item__val">~110 г</span>
+                </div>
+                <div>
+                  <span class="macro-item__label">Жиры</span>
+                  <span class="macro-item__val">~48 г</span>
+                </div>
+                <div>
+                  <span class="macro-item__label">Углеводы</span>
+                  <span class="macro-item__val">~155 г</span>
+                </div>
+              </div>
+
+              <ul class="tariff-card__features">
+                <li><span class="check-icon">✓</span> Полноценное 5-разовое питание с ПП-перекусами</li>
+                <li><span class="check-icon">✓</span> Идеально для поддержания формы или мягкого снижения</li>
+                <li><span class="check-icon">✓</span> Доставка по Томску и Северску — 0 ₽</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="tariff-card__price-box">
+                <div class="tariff-card__price-row">
+                  <span class="tariff-card__price" data-role="price">1 350 ₽</span>
+                  <span class="tariff-card__old-price" data-role="old-price" style="display:none">1 350 ₽</span>
+                  <span class="tariff-card__per">/ день</span>
+                </div>
+                <div class="tariff-card__subnote" data-role="subnote">От 2 недель (−10%): 1 215 ₽ / день</div>
+              </div>
+
+              <button type="button" class="btn btn--primary tariff-card__btn" data-open-order data-order-tariff="1500">
+                Заказать · 1 500 ккал
+              </button>
+            </div>
+          </article>
+
+          <!-- 4. 2000 ккал -->
+          <article class="tariff-card" data-kcal="2000">
+            <div>
+              <div class="tariff-card__top-row">
+                <span class="tariff-card__tier">Тариф Fit</span>
+                <span class="tariff-card__meals-pill">5 блюд в день</span>
+              </div>
+              <h3 class="tariff-card__kcal">2 000 <small>ккал</small></h3>
+              <p class="tariff-card__goal">Активный ритм жизни и регулярный спорт</p>
+
+              <div class="tariff-card__macros" aria-label="Ориентир БЖУ">
+                <div>
+                  <span class="macro-item__label">Белки</span>
+                  <span class="macro-item__val">~145 г</span>
+                </div>
+                <div>
+                  <span class="macro-item__label">Жиры</span>
+                  <span class="macro-item__val">~65 г</span>
+                </div>
+                <div>
+                  <span class="macro-item__label">Углеводы</span>
+                  <span class="macro-item__val">~208 г</span>
+                </div>
+              </div>
+
+              <ul class="tariff-card__features">
+                <li><span class="check-icon">✓</span> 5 сытных приёмов пищи на целый день</li>
+                <li><span class="check-icon">✓</span> Баланс энергии для работы и тренировок</li>
+                <li><span class="check-icon">✓</span> Доставка по Томску и Северску — 0 ₽</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="tariff-card__price-box">
+                <div class="tariff-card__price-row">
+                  <span class="tariff-card__price" data-role="price">1 550 ₽</span>
+                  <span class="tariff-card__old-price" data-role="old-price" style="display:none">1 550 ₽</span>
+                  <span class="tariff-card__per">/ день</span>
+                </div>
+                <div class="tariff-card__subnote" data-role="subnote">От 2 недель (−10%): 1 395 ₽ / день</div>
+              </div>
+
+              <button type="button" class="btn btn--dark-solid tariff-card__btn" data-open-order data-order-tariff="2000">
+                Заказать · 2 000 ккал
+              </button>
+            </div>
+          </article>
+
+          <!-- 5. 2500 ккал -->
+          <article class="tariff-card" data-kcal="2500">
+            <div>
+              <div class="tariff-card__top-row">
+                <span class="tariff-card__tier">Тариф Power</span>
+                <span class="tariff-card__meals-pill">6 блюд в день</span>
+              </div>
+              <h3 class="tariff-card__kcal">2 500 <small>ккал</small></h3>
+              <p class="tariff-card__goal">Максимум энергии, тренировки и набор массы</p>
+
+              <div class="tariff-card__macros" aria-label="Ориентир БЖУ">
+                <div>
+                  <span class="macro-item__label">Белки</span>
+                  <span class="macro-item__val">~180 г</span>
+                </div>
+                <div>
+                  <span class="macro-item__label">Жиры</span>
+                  <span class="macro-item__val">~80 г</span>
+                </div>
+                <div>
+                  <span class="macro-item__label">Углеводы</span>
+                  <span class="macro-item__val">~265 г</span>
+                </div>
+              </div>
+
+              <ul class="tariff-card__features">
+                <li><span class="check-icon">✓</span> 6 полноценных блюд с высоким содержанием белка</li>
+                <li><span class="check-icon">✓</span> Мясо, птица, красная рыба, крупы и ПП-десерты</li>
+                <li><span class="check-icon">✓</span> Доставка по Томску и Северску — 0 ₽</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="tariff-card__price-box">
+                <div class="tariff-card__price-row">
+                  <span class="tariff-card__price" data-role="price">1 750 ₽</span>
+                  <span class="tariff-card__old-price" data-role="old-price" style="display:none">1 750 ₽</span>
+                  <span class="tariff-card__per">/ день</span>
+                </div>
+                <div class="tariff-card__subnote" data-role="subnote">От 2 недель (−10%): 1 575 ₽ / день</div>
+              </div>
+
+              <button type="button" class="btn btn--dark-solid tariff-card__btn" data-open-order data-order-tariff="2500">
+                Заказать · 2 500 ккал
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Живые фото блюд и Интерактивное меню -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag section-tag--dark">Честная подача</span>
+          <h2 class="section-title section-title--dark">Живые фото наших рационов</h2>
+          <p class="section-desc section-desc--dark">
+            Именно так выглядят реальные контейнеры с нашей кухни PP TOMSK перед отправкой клиентам — свежая зелень, отборное мясо, рыба и десерты без сахара.
+          </p>
+        </div>
+
+        <!-- Галерея реальных фотографий из канала PP_TOMSK -->
+        <div class="gallery-grid">
+          <div class="dish-photo-card" tabindex="0" role="button" aria-label="Увеличить фото блюда">
+            <img src="assets/images/dish-skewers-veggies.webp" alt="Шашлычок из курочки с запечёнными овощами и брокколи" loading="lazy" />
+            <div class="dish-photo-card__overlay">
+              <span class="dish-photo-card__tag">Обед / Ужин</span>
+              <div class="dish-photo-card__caption">Шашлычок из курочки с брокколи, цукини и сладким перцем</div>
+            </div>
+          </div>
+
+          <div class="dish-photo-card" tabindex="0" role="button" aria-label="Увеличить фото блюда">
+            <img src="assets/images/dish-salad-microgreens.webp" alt="Свежий салат с куриной грудкой, фетой, кедровым орехом и микрозеленью" loading="lazy" />
+            <div class="dish-photo-card__overlay">
+              <span class="dish-photo-card__tag">Свежий салат</span>
+              <div class="dish-photo-card__caption">Салат с куриной грудкой, фетой, кедровым орешком и микрозеленью</div>
+            </div>
+          </div>
+
+          <div class="dish-photo-card" tabindex="0" role="button" aria-label="Увеличить фото блюда">
+            <img src="assets/images/dish-teriyaki-rice.webp" alt="Куриный шашлычок в соусе терияки с кунжутом и рисом" loading="lazy" />
+            <div class="dish-photo-card__overlay">
+              <span class="dish-photo-card__tag">Горячее блюдо</span>
+              <div class="dish-photo-card__caption">Куриный шашлычок в соусе терияки с кунжутом и рассыпчатым рисом</div>
+            </div>
+          </div>
+
+          <div class="dish-photo-card" tabindex="0" role="button" aria-label="Увеличить фото блюда">
+            <img src="assets/images/dish-omelette-cheese.webp" alt="Воздушный омлет с сыром, шампиньонами и свежими овощами" loading="lazy" />
+            <div class="dish-photo-card__overlay">
+              <span class="dish-photo-card__tag">Завтрак</span>
+              <div class="dish-photo-card__caption">Нежный омлет с сыром, шампиньонами и свежими овощами</div>
+            </div>
+          </div>
+
+          <div class="dish-photo-card" tabindex="0" role="button" aria-label="Увеличить фото блюда">
+            <img src="assets/images/dish-seafood-caviar.webp" alt="ПП-салат с тихоокеанским кальмаром, сыром и красной икрой" loading="lazy" />
+            <div class="dish-photo-card__overlay">
+              <span class="dish-photo-card__tag">Особое блюдо</span>
+              <div class="dish-photo-card__caption">Сытный салат с кальмаром, сыром, свежей зеленью и красной икрой</div>
+            </div>
+          </div>
+
+          <div class="dish-photo-card" tabindex="0" role="button" aria-label="Увеличить фото блюда">
+            <img src="assets/images/dish-red-velvet.webp" alt="Фирменный ПП-десерт Красный бархат без сахара" loading="lazy" />
+            <div class="dish-photo-card__overlay">
+              <span class="dish-photo-card__tag">0% сахара</span>
+              <div class="dish-photo-card__caption">Нежный ПП-десерт «Красный бархат» без белого сахара</div>
+            </div>
+          </div>
+
+          <div class="dish-photo-card" tabindex="0" role="button" aria-label="Увеличить фото блюда">
+            <img src="assets/images/dish-greek-salad.webp" alt="Греческий салат с фетой, маслинами и семечками" loading="lazy" />
+            <div class="dish-photo-card__overlay">
+              <span class="dish-photo-card__tag">Лёгкий перекус</span>
+              <div class="dish-photo-card__caption">Греческий салат с фетой, маслинами, семечками и соусом</div>
+            </div>
+          </div>
+
+          <div class="dish-photo-card" tabindex="0" role="button" aria-label="Увеличить фото блюда">
+            <img src="assets/images/dish-cutlet-frittata.webp" alt="Запечённая куриная котлета с овощной фриттатой" loading="lazy" />
+            <div class="dish-photo-card__overlay">
+              <span class="dish-photo-card__tag">Белковый приём</span>
+              <div class="dish-photo-card__caption">Запечённая котлета из птицы с овощной фриттатой и фасолью</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Интерактивный пример меню на неделю -->
+        <div class="weekly-panel">
+          <div class="weekly-panel__header">
+            <div>
+              <h3 class="weekly-panel__title">Пример меню на неделю</h3>
+              <p class="weekly-panel__sub">У нас действует 8-недельный цикл меню — новые сочетания и открытия каждый день!</p>
+            </div>
+          </div>
+
+          <!-- Вкладки калорийности -->
+          <div class="kcal-tabs" role="tablist" aria-label="Калорийность меню">
+            <button type="button" class="kcal-tab" data-menu-kcal="1000">1 000 ккал · 3 блюда</button>
+            <button type="button" class="kcal-tab" data-menu-kcal="1300">1 300 ккал · 4 блюда</button>
+            <button type="button" class="kcal-tab is-active" data-menu-kcal="1500">1 500 ккал · 5 блюд</button>
+            <button type="button" class="kcal-tab" data-menu-kcal="2000">2 000 ккал · 5 блюд</button>
+            <button type="button" class="kcal-tab" data-menu-kcal="2500">2 500 ккал · 6 блюд</button>
+          </div>
+
+          <!-- Вкладки дней недели -->
+          <div class="day-tabs" role="tablist" aria-label="День недели">
+            <button type="button" class="day-tab is-active" data-menu-day="mon">
+              <span class="day-tab__full">Понедельник</span><span class="day-tab__short">Пн</span>
+            </button>
+            <button type="button" class="day-tab" data-menu-day="tue">
+              <span class="day-tab__full">Вторник</span><span class="day-tab__short">Вт</span>
+            </button>
+            <button type="button" class="day-tab" data-menu-day="wed">
+              <span class="day-tab__full">Среда</span><span class="day-tab__short">Ср</span>
+            </button>
+            <button type="button" class="day-tab" data-menu-day="thu">
+              <span class="day-tab__full">Четверг</span><span class="day-tab__short">Чт</span>
+            </button>
+            <button type="button" class="day-tab" data-menu-day="fri">
+              <span class="day-tab__full">Пятница</span><span class="day-tab__short">Пт</span>
+            </button>
+            <button type="button" class="day-tab" data-menu-day="sat">
+              <span class="day-tab__full">Суббота</span><span class="day-tab__short">Сб</span>
+            </button>
+            <button type="button" class="day-tab" data-menu-day="sun">
+              <span class="day-tab__full">Воскресенье</span><span class="day-tab__short">Вс</span>
+            </button>
+          </div>
+
+          <!-- Список блюд выбранного дня -->
+          <div class="meals-list" id="mealsList"></div>
+
+          <div class="weekly-panel__footer">
+            <span class="weekly-panel__disclaimer">*Возможны небольшие сезонные корректировки блюд при сохранении расчётного КБЖУ.</span>
+            <button type="button" class="btn btn--primary" id="menuOrderBtn" data-open-order data-order-tariff="1500">
+              Заказать рацион 1500 ккал (5 блюд)
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Условия доставки и правила заказа -->
+    <section class="delivery-section" id="delivery">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag section-tag--light">Томск и Северск</span>
+          <h2 class="section-title section-title--light">График и условия доставки</h2>
+          <p class="section-desc section-desc--light">
+            Привозим свежие рационы вечером в удобном интервале — утром ваш завтрак, обед и ужин уже ждут вас в холодильнике.
+          </p>
+        </div>
+
+        <div class="delivery-grid">
+          <!-- Левая карточка: расписание дней -->
+          <div class="delivery-box">
+            <div>
+              <div class="delivery-box__head">
+                <h3 class="delivery-box__title">Дни доставки</h3>
+                <span class="time-pill">с 18:00 до 22:00</span>
+              </div>
+
+              <div class="schedule-rows">
+                <div class="schedule-row">
+                  <div class="schedule-row__day"><span class="schedule-row__dot"></span> Вторник</div>
+                  <div class="schedule-row__meta">
+                    <span class="schedule-row__pack">Рацион на 2 дня</span>
+                    <span class="schedule-row__hours">18:00 – 22:00</span>
+                  </div>
+                </div>
+
+                <div class="schedule-row">
+                  <div class="schedule-row__day"><span class="schedule-row__dot"></span> Четверг</div>
+                  <div class="schedule-row__meta">
+                    <span class="schedule-row__pack">Рацион на 2 дня</span>
+                    <span class="schedule-row__hours">18:00 – 22:00</span>
+                  </div>
+                </div>
+
+                <div class="schedule-row">
+                  <div class="schedule-row__day"><span class="schedule-row__dot"></span> Суббота</div>
+                  <div class="schedule-row__meta">
+                    <span class="schedule-row__pack">Рацион на 1 день</span>
+                    <span class="schedule-row__hours">18:00 – 22:00</span>
+                  </div>
+                </div>
+
+                <div class="schedule-row">
+                  <div class="schedule-row__day"><span class="schedule-row__dot"></span> Воскресенье</div>
+                  <div class="schedule-row__meta">
+                    <span class="schedule-row__pack">Рацион на 2 дня</span>
+                    <span class="schedule-row__hours">18:00 – 22:00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="free-city-banner">
+              <span class="free-city-banner__badge">0 ₽</span>
+              <div class="free-city-banner__text">
+                <strong>Бесплатная доставка по г. Томску и г. Северску</strong> — никаких скрытых доплат к стоимости тарифа.
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая карточка: памятка клиента -->
+          <div class="delivery-box">
+            <div>
+              <div class="delivery-box__head">
+                <h3 class="delivery-box__title">Условия заказа</h3>
+              </div>
+
+              <div class="rules-list">
+                <div class="rule-item rule-item--main">
+                  <div class="rule-item__icon" aria-hidden="true">🕔</div>
+                  <div>
+                    <div class="rule-item__title">Заказ и оплата за день до доставки до 17:00.</div>
+                  </div>
+                </div>
+
+                <div class="rule-item rule-item--main rule-item--warn">
+                  <div class="rule-item__icon" aria-hidden="true">🕗</div>
+                  <div>
+                    <div class="rule-item__title">Отказ от рациона, за день до доставки, до 20:00.</div>
+                    <p class="rule-item__alert">В случае несвоевременного уведомления об отказе, денежные средства не возвращаются.</p>
+                  </div>
+                </div>
+
+                <div class="rule-item rule-item--main">
+                  <div class="rule-item__icon" aria-hidden="true">%</div>
+                  <div>
+                    <div class="rule-item__title">Скидка 10% при оплате на 2 недели</div>
+                    <p class="rule-item__desc">Для заказа напишите нам в MAX, ВКонтакте, Telegram или позвоните: <strong>8-923-433-11-83</strong>.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Контакты и Подвал -->
+  <footer class="contacts-section" id="contacts">
+    <div class="container">
+      <div class="section-head" style="margin-bottom: 34px;">
+        <span class="section-tag section-tag--dark">Всегда на связи</span>
+        <h2 class="section-title section-title--dark">Свяжитесь с нами удобным способом</h2>
+        <p class="section-desc section-desc--dark">
+          Поможем подобрать калорийность под вашу цель и примем заказ на ближайшую доставку в Томске или Северске.
+        </p>
+      </div>
+
+      <!-- Крупный блок с телефоном -->
+      <div class="phone-hero-card">
+        <div>
+          <div class="phone-hero-card__label">Телефон для заказов и консультаций</div>
+          <a href="tel:+79234331183" class="phone-hero-card__number">+7 (923) 433-11-83</a>
+          <div class="phone-hero-card__sub">Также можно писать по этому номеру (8-923-433-11-83) в мессенджеры</div>
+        </div>
+        <div class="phone-hero-card__btns">
+          <button type="button" class="btn btn--outline-dark" data-copy-phone>
+            Скопировать номер
+          </button>
+          <button type="button" class="btn btn--primary btn--lg" data-open-order>
+            Заказать питание
+          </button>
+        </div>
+      </div>
+
+      <!-- Карточки соцсетей: MAX, ВК, Instagram, Telegram -->
+      <div class="socials-grid">
+        <a href="https://max.ru/u/f9LHodD0cOKltUm-97KanH05-3f_t5B6QdtOZZHx1U90Er9B9gcWv1d9wYU" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-card__head">
+            <div class="social-card__badge social-card__badge--max">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 18V6L9.5 13.5L12 10L14.5 13.5L20 6V18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="social-card__arrow">↗</span>
+          </div>
+          <div>
+            <div class="social-card__name">Мессенджер MAX</div>
+            <div class="social-card__handle">Быстрый чат и приём заказов в MAX</div>
+          </div>
+        </a>
+
+        <a href="https://vk.ru/pravilnoepitanietomsk" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-card__head">
+            <div class="social-card__badge social-card__badge--vk">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.78 17.5c-5.46 0-8.58-3.75-8.71-9.99h2.74c.09 4.58 2.11 6.52 3.71 6.92V7.51h2.58v3.95c1.58-.17 3.24-1.97 3.8-3.95h2.58c-.43 2.44-2.23 4.24-3.51 4.98 1.28.6 3.33 2.17 4.11 5.01h-2.84c-.61-1.9-2.13-3.37-4.14-3.57v3.57h-.32z"/>
+              </svg>
+            </div>
+            <span class="social-card__arrow">↗</span>
+          </div>
+          <div>
+            <div class="social-card__name">ВКонтакте</div>
+            <div class="social-card__handle">vk.ru/pravilnoepitanietomsk · Наше сообщество</div>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/pp_tomsk?psln=MXFwc2ZjajNldGhlcQ==" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-card__head">
+            <div class="social-card__badge social-card__badge--ig">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5"/>
+                <circle cx="12" cy="12" r="4.2"/>
+                <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <span class="social-card__arrow">↗</span>
+          </div>
+          <div>
+            <div class="social-card__name">Instagram*</div>
+            <div class="social-card__handle">@pp_tomsk · Обзоры блюд и сторис с кухни</div>
+          </div>
+        </a>
+
+        <a href="https://t.me/PP_TOMSK" target="_blank" rel="noopener noreferrer" class="social-card">
+          <div class="social-card__head">
+            <div class="social-card__badge social-card__badge--tg">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.66 4.44 3.43 11.09c-1.18.47-1.17 1.13-.21 1.42l4.42 1.38 10.23-6.45c.48-.29.92-.13.56.19l-8.29 7.48-.31 4.55c.45 0 .65-.21.9-.45l2.16-2.1 4.49 3.31c.83.46 1.42.22 1.63-.77l2.95-13.89c.3-1.21-.46-1.76-1.3-1.32z"/>
+              </svg>
+            </div>
+            <span class="social-card__arrow">↗</span>
+          </div>
+          <div>
+            <div class="social-card__name">Telegram</div>
+            <div class="social-card__handle">@PP_TOMSK · Актуальное меню и связь</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 <strong>PP TOMSK</strong> — Доставка правильного питания по г. Томску и г. Северску.</div>
+        <div>*Meta Platforms Inc. (соцсеть Instagram) признана экстремистской организацией и запрещена на территории РФ.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Мобильная нижняя панель быстрого заказа -->
+  <div class="mobile-sticky-bar">
+    <a href="tel:+79234331183" class="btn btn--outline-dark" style="padding: 12px 16px;" aria-label="Позвонить">
+      📞
+    </a>
+    <button type="button" class="btn btn--primary" style="flex: 1;" data-open-order>
+      Заказать рацион
+    </button>
+  </div>
+
+  <!-- Всплывающее окно быстрого заказа (выбор соцсети / звонок) -->
+  <div class="modal-backdrop" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+    <div class="modal-card">
+      <button type="button" class="modal-close" data-close-modal aria-label="Закрыть окно">✕</button>
+      <h3 class="modal-title" id="orderModalTitle">Оформить заказ</h3>
+      <p class="modal-sub">Выберите удобный мессенджер или позвоните нам — ответим быстро и оформим доставку!</p>
+
+      <div class="modal-selected-box">
+        <div class="modal-selected-box__text">
+          <strong id="modalSelectedLabel">Подбор и заказ рациона PP TOMSK</strong>
+          <span id="modalSelectedMeta">Томск и Северск · Бесплатная доставка 18:00–22:00</span>
+        </div>
+        <button type="button" class="copy-order-btn" id="copyOrderBtn">
+          Скопировать текст
+        </button>
+      </div>
+
+      <div class="modal-links">
+        <a href="https://max.ru/u/f9LHodD0cOKltUm-97KanH05-3f_t5B6QdtOZZHx1U90Er9B9gcWv1d9wYU" target="_blank" rel="noopener noreferrer" class="modal-link-btn modal-link-btn--max">
+          <span class="modal-link-btn__left">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 18V6L9.5 13.5L12 10L14.5 13.5L20 6V18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Написать в MAX
+          </span>
+          <span>↗</span>
+        </a>
+
+        <a href="https://vk.ru/pravilnoepitanietomsk" target="_blank" rel="noopener noreferrer" class="modal-link-btn modal-link-btn--vk">
+          <span class="modal-link-btn__left">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.78 17.5c-5.46 0-8.58-3.75-8.71-9.99h2.74c.09 4.58 2.11 6.52 3.71 6.92V7.51h2.58v3.95c1.58-.17 3.24-1.97 3.8-3.95h2.58c-.43 2.44-2.23 4.24-3.51 4.98 1.28.6 3.33 2.17 4.11 5.01h-2.84c-.61-1.9-2.13-3.37-4.14-3.57v3.57h-.32z"/>
+            </svg>
+            Написать ВКонтакте
+          </span>
+          <span>↗</span>
+        </a>
+
+        <a href="https://t.me/PP_TOMSK" target="_blank" rel="noopener noreferrer" class="modal-link-btn modal-link-btn--tg">
+          <span class="modal-link-btn__left">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.66 4.44 3.43 11.09c-1.18.47-1.17 1.13-.21 1.42l4.42 1.38 10.23-6.45c.48-.29.92-.13.56.19l-8.29 7.48-.31 4.55c.45 0 .65-.21.9-.45l2.16-2.1 4.49 3.31c.83.46 1.42.22 1.63-.77l2.95-13.89c.3-1.21-.46-1.76-1.3-1.32z"/>
+            </svg>
+            Открыть Telegram (@PP_TOMSK)
+          </span>
+          <span>↗</span>
+        </a>
+
+        <a href="tel:+79234331183" class="modal-link-btn modal-link-btn--call">
+          <span class="modal-link-btn__left">
+            📞 Позвонить: 8-923-433-11-83
+          </span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Лайтбокс для просмотра фото блюд -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фотографии блюда">
+    <div class="lightbox__inner">
+      <button type="button" class="modal-close" data-close-lightbox style="top: -48px; right: 0;" aria-label="Закрыть фото">✕</button>
+      <img src="" alt="" class="lightbox__img" id="lightboxImg" />
+      <div class="lightbox__caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Всплывающее уведомление -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

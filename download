@@ -1,0 +1,6 @@
+AddDefaultCharset UTF-8
+DirectoryIndex index.html
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+</IfModule>
