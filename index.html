@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114298895', 'ym');
+
+    ym(114298895, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <!-- /Yandex.Metrika counter -->
   <title>PP TOMSK — Доставка правильного питания в Томске</title>
   <meta name="description" content="Готовые рационы правильного питания с расчётом КБЖУ от 1000 до 2500 ккал. Свежая закупка в день доставки, без сахара, бесплатная доставка по Томску. Скидка 10% от 2 недель!" />
   <meta name="theme-color" content="#0b100e" />
@@ -2476,6 +2488,7 @@ button {
 </style>
 </head>
 <body>
+  <noscript><div><img src="https://mc.yandex.ru/watch/114298895" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
   <!-- Верхняя плашка со спецпредложением -->
   <div class="promo-bar">
@@ -3981,6 +3994,51 @@ button {
 
     recalc();
   })();
+
+
+  // Yandex.Metrika Conversion Goals (Counter 114298895)
+  function trackGoal(goalName, params) {
+    try {
+      if (typeof window.ym === 'function') {
+        window.ym(114298895, 'reachGoal', goalName, params || {});
+      }
+    } catch (err) {}
+  }
+
+  document.addEventListener('click', (ev) => {
+    const orderBtn = ev.target.closest('[data-open-order]');
+    if (orderBtn) {
+      trackGoal('open_order_modal', { tariff: orderBtn.getAttribute('data-order-tariff') || 'general' });
+    }
+    const link = ev.target.closest('a[href]');
+    if (link) {
+      const h = link.getAttribute('href') || '';
+      if (h.startsWith('tel:')) trackGoal('click_phone');
+      else if (h.includes('max.ru')) trackGoal('click_messenger', { channel: 'max' });
+      else if (h.includes('vk.ru') || h.includes('vk.com')) trackGoal('click_messenger', { channel: 'vk' });
+      else if (h.includes('t.me')) trackGoal('click_messenger', { channel: 'telegram' });
+      else if (h.includes('instagram.com')) trackGoal('click_messenger', { channel: 'instagram' });
+    }
+    if (ev.target.closest('[data-copy-phone]')) {
+      trackGoal('click_phone', { method: 'copy' });
+    }
+    if (ev.target.closest('#copyOrderBtn')) {
+      trackGoal('copy_order_text');
+    }
+  });
+
+  let calcTracked = false;
+  ['calcAge', 'calcHeight', 'calcWeight', 'calcActivity', 'calcGoal'].forEach((cid) => {
+    const el = document.getElementById(cid);
+    if (el) {
+      el.addEventListener('change', () => {
+        if (!calcTracked) {
+          calcTracked = true;
+          trackGoal('use_kbzhu_calc');
+        }
+      });
+    }
+  });
 
 })();
 
