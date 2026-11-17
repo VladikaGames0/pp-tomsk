@@ -31,7 +31,11 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
   <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="PP TOMSK" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -2516,6 +2520,7 @@ button {
         <a href="#menu" class="main-nav__link">Меню и фото</a>
         <a href="#delivery" class="main-nav__link">Доставка</a>
         <a href="#contacts" class="main-nav__link">Контакты</a>
+        <a href="app.html" class="main-nav__link" style="color: var(--green-300); font-weight: 800;">📱 Приложение</a>
       </nav>
 
       <div class="header-actions">
@@ -2575,6 +2580,7 @@ button {
         <a href="#menu" class="mobile-drawer__link">Меню и живые фото</a>
         <a href="#delivery" class="mobile-drawer__link">Условия доставки</a>
         <a href="#contacts" class="mobile-drawer__link">Контакты и соцсети</a>
+        <a href="app.html" class="mobile-drawer__link" style="color: var(--green-300);">📱 Скачать приложение на телефон</a>
       </nav>
       <div class="mobile-drawer__contacts">
         <a href="tel:+79234331183" class="btn btn--outline-dark">📞 8-923-433-11-83</a>
@@ -3405,7 +3411,7 @@ button {
       <div class="seo-nav-box">
         <div class="seo-nav-box__title">Направления и полезные разделы PP TOMSK:</div>
         <div class="seo-nav-links">
-          <a href="index.html" class="seo-nav-pill is-current">Главная · Все рационы</a><a href="pohudenie.html" class="seo-nav-pill">Рационы для похудения</a><a href="sport-pitanie.html" class="seo-nav-pill">Спортивное питание 2000–2500 ккал</a><a href="kalkulyator-kbzhu.html" class="seo-nav-pill">Онлайн-калькулятор КБЖУ</a>
+          <a href="index.html" class="seo-nav-pill is-current">Главная · Все рационы</a><a href="pohudenie.html" class="seo-nav-pill">Рационы для похудения</a><a href="sport-pitanie.html" class="seo-nav-pill">Спортивное питание 2000–2500 ккал</a><a href="kalkulyator-kbzhu.html" class="seo-nav-pill">Онлайн-калькулятор КБЖУ</a><a href="app.html" class="seo-nav-pill">📱 Мобильное приложение</a>
         </div>
       </div>
 
@@ -4039,6 +4045,13 @@ button {
       });
     }
   });
+
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
 
 })();
 
