@@ -2695,7 +2695,19 @@ button {
   color: #07120a;
 }
 
-/* Smart Next-Delivery + Trial Box under Tariffs */
+/* Smart Next-Delivery + Trial Box above Calculator */
+.trial-top-section {
+  background: var(--bg-light);
+  padding: 52px 0;
+}
+.quick-lead-card {
+  scroll-margin-top: 104px;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.quick-lead-card--highlight {
+  border-color: var(--green-400) !important;
+  box-shadow: 0 0 0 3px rgba(120, 212, 72, 0.35), 0 24px 56px rgba(0, 0, 0, 0.45) !important;
+}
 .trial-smart-card {
   margin-top: 34px;
   background: linear-gradient(135deg, #101d15 0%, #182b20 100%);
@@ -3227,6 +3239,41 @@ button {
     </section>
 
     
+    <!-- Умный виджет ближайшей доставки + Пробный заказ на 1–2 дня (над калькулятором) -->
+    <section class="trial-top-section" aria-label="Пробный рацион и ближайшая доставка">
+      <div class="container">
+        <div class="trial-smart-card" style="margin-top: 0;">
+          <div>
+            <span class="trial-smart-card__tag">✨ Первый раз в PP TOMSK?</span>
+            <h3 class="trial-smart-card__title">Не обязательно сразу платить за 2 недели — закажите пробный рацион на 1–2 дня!</h3>
+            <p class="trial-smart-card__desc">
+              Попробуйте нашу кухню без риска (от <strong>1 000 ₽/день</strong>, доставка по Томску — <strong>0 ₽</strong>): оцените вкус горячих блюд, свежих салатов и ПП-десертов, а уже потом переходите на выгодный курс со скидкой <strong>−10%</strong>.
+            </p>
+            <a href="#quickLeadForm" class="btn btn--primary" id="trialOrderBtn">
+              Попробовать на ближайшую доставку →
+            </a>
+          </div>
+
+          <div class="next-delivery-widget" aria-live="polite">
+            <div class="ndw-row">
+              <span class="ndw-dot"></span>
+              <div>
+                <div class="ndw-label">Ближайший доступный развоз по Томску</div>
+                <div class="ndw-val" id="nextDeliveryDate">Вт / Чт / Сб / Вс · 18:00 – 22:00</div>
+              </div>
+            </div>
+            <div class="ndw-row">
+              <span style="font-size:16px; line-height:1;">⏰</span>
+              <div>
+                <div class="ndw-label">Закрытие записи на этот маршрут</div>
+                <div class="ndw-deadline" id="nextDeliveryDeadline">За день до доставки до 17:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Онлайн-калькулятор КБЖУ и подбора рациона -->
     <section class="calc-section" id="calculator">
       <div class="container">
@@ -3591,36 +3638,6 @@ button {
               </button>
             </div>
           </article>
-        </div>
-        <!-- Умный виджет ближайшей доставки + Пробный заказ на 1–2 дня -->
-        <div class="trial-smart-card">
-          <div>
-            <span class="trial-smart-card__tag">✨ Первый раз в PP TOMSK?</span>
-            <h3 class="trial-smart-card__title">Не обязательно сразу платить за 2 недели — закажите пробный рацион на 1–2 дня!</h3>
-            <p class="trial-smart-card__desc">
-              Попробуйте нашу кухню без риска (от <strong>1 000 ₽/день</strong>, доставка по Томску — <strong>0 ₽</strong>): оцените вкус горячих блюд, свежих салатов и ПП-десертов, а уже потом переходите на выгодный курс со скидкой <strong>−10%</strong>.
-            </p>
-            <button type="button" class="btn btn--primary" id="trialOrderBtn">
-              Попробовать на ближайшую доставку →
-            </button>
-          </div>
-
-          <div class="next-delivery-widget" aria-live="polite">
-            <div class="ndw-row">
-              <span class="ndw-dot"></span>
-              <div>
-                <div class="ndw-label">Ближайший доступный развоз по Томску</div>
-                <div class="ndw-val" id="nextDeliveryDate">Вт / Чт / Сб / Вс · 18:00 – 22:00</div>
-              </div>
-            </div>
-            <div class="ndw-row">
-              <span style="font-size:16px; line-height:1;">⏰</span>
-              <div>
-                <div class="ndw-label">Закрытие записи на этот маршрут</div>
-                <div class="ndw-deadline" id="nextDeliveryDeadline">За день до доставки до 17:00</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -4920,17 +4937,26 @@ button {
       }
     }
 
-    // 3. Trial Order Button
+    // 3. Trial Order Link -> scrolls to #quickLeadForm & pre-selects 1-2 day trial
     const trialBtn = document.getElementById('trialOrderBtn');
     if (trialBtn) {
-      trialBtn.addEventListener('click', () => {
-        openOrderModal('general');
-        currentOrderText = 'Здравствуйте! Хочу заказать пробный рацион PP TOMSK на 1–2 дня на ближайшую доставку. Подскажите, пожалуйста, актуальное меню!';
-        if (modalSelectedLabel) modalSelectedLabel.textContent = 'Пробный рацион на 1–2 дня';
-        if (modalSelectedMeta) modalSelectedMeta.textContent = 'От 1 000 ₽/день · Бесплатная доставка 18:00–22:00';
-        const modalTgOrderBtn = document.getElementById('modalTgOrderBtn');
-        if (modalTgOrderBtn) {
-          modalTgOrderBtn.href = 'https://t.me/pp_tomsk_zakaz?text=' + encodeURIComponent(currentOrderText);
+      trialBtn.addEventListener('click', (e) => {
+        const qlFormEl = document.getElementById('quickLeadForm');
+        const qlTariffEl = document.getElementById('qlTariff');
+        const qlNameEl = document.getElementById('qlName');
+        if (qlTariffEl) {
+          qlTariffEl.value = 'Пробный заказ на 1–2 дня';
+        }
+        if (qlFormEl) {
+          e.preventDefault();
+          qlFormEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          qlFormEl.classList.add('quick-lead-card--highlight');
+          setTimeout(() => {
+            if (qlNameEl) qlNameEl.focus({ preventScroll: true });
+          }, 550);
+          setTimeout(() => {
+            qlFormEl.classList.remove('quick-lead-card--highlight');
+          }, 2600);
         }
       });
     }
