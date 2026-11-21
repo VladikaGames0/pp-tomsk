@@ -3067,6 +3067,70 @@ button {
   }
 }
 
+
+/* Modal Inline Lead Form (#modalLeadForm) */
+.modal-lead-form {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(120, 212, 72, 0.34);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.modal-lead-form__title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.modal-lead-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.modal-lead-form input,
+.modal-lead-form select {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(7, 13, 10, 0.85);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13.5px;
+  outline: none;
+}
+.modal-lead-form input:focus,
+.modal-lead-form select:focus {
+  border-color: var(--green-400);
+}
+.modal-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  color: rgba(210, 226, 216, 0.52);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin: 14px 0 12px;
+}
+.modal-divider::before,
+.modal-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 520px) {
+  .modal-lead-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -4293,6 +4357,25 @@ button {
         </button>
       </div>
 
+      <!-- Быстрая отправка контакта прямо из окна заказа -->
+      <form class="modal-lead-form" id="modalLeadForm">
+        <div class="modal-lead-form__title">⚡ Оставьте контакт — сами напишем за 5 минут:</div>
+        <input type="text" id="mlWebsite" name="website" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; opacity:0; pointer-events:none;" aria-hidden="true" />
+        <div class="modal-lead-grid">
+          <input type="text" id="mlName" placeholder="Ваше имя" maxlength="80" required />
+          <input type="text" id="mlPhone" placeholder="Телефон или @ник" maxlength="80" required />
+          <select id="mlChannel" aria-label="Где вам написать">
+            <option value="tg" selected>Написать в Telegram</option>
+            <option value="max">Написать в MAX</option>
+          </select>
+          <button type="submit" class="btn btn--primary" id="mlSubmitBtn" style="padding:11px 16px; font-size:13.5px; white-space:nowrap;">
+            Жду сообщения →
+          </button>
+        </div>
+        <div class="ql-status" id="mlStatus" role="status" aria-live="polite" style="display:none; margin-top:12px; padding:11px 14px; font-size:13px;"></div>
+      </form>
+
+      <div class="modal-divider">или напишите / позвоните сами</div>
       <div class="modal-links">
         <a href="https://t.me/pp_tomsk_zakaz?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D0%B8%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%20PP%20TOMSK" id="modalTgOrderBtn" target="_blank" rel="noopener noreferrer" class="modal-link-btn modal-link-btn--tg-order">
           <span class="modal-link-btn__left">
@@ -4660,16 +4743,19 @@ button {
   const modalSelectedMeta = document.getElementById('modalSelectedMeta');
   const copyOrderBtn = document.getElementById('copyOrderBtn');
 
-  function openOrderModal(contextType, tariffKey) {
+  function openOrderModal(contextType, tariffKey, fromCalc) {
     if (!orderModal) return;
+    const mlStatus = document.getElementById('mlStatus');
+    if (mlStatus) mlStatus.style.display = 'none';
 
     if (contextType === 'tariff' && TARIFFS[tariffKey]) {
       const t = TARIFFS[tariffKey];
       const activePrice = billingMode === 'twoweeks' ? Math.round(t.price * 0.9) : t.price;
       const periodLabel = billingMode === 'twoweeks' ? 'на 2 недели со скидкой 10%' : 'стандартный тариф';
       modalSelectedLabel.textContent = `${t.name} (${t.meals} блюд в день)`;
-      modalSelectedMeta.textContent = `${formatRub(activePrice)} / день · ${periodLabel} · Доставка 0 ₽`;
-      currentOrderText = `Здравствуйте! Хочу заказать рацион PP TOMSK: ${t.kcal} ккал (${t.meals} блюд в день), ${periodLabel} (${formatRub(activePrice)}/день).`;
+      const calcSuffix = (fromCalc && window.__ppCalcSummary) ? ` · КБЖУ: ${window.__ppCalcSummary}` : '';
+      modalSelectedMeta.textContent = `${formatRub(activePrice)} / день · ${periodLabel}${calcSuffix}`;
+      currentOrderText = `Здравствуйте! Хочу заказать рацион PP TOMSK: ${t.kcal} ккал (${t.meals} блюд в день), ${periodLabel} (${formatRub(activePrice)}/день).${calcSuffix ? ' Мой расчёт: ' + window.__ppCalcSummary : ''}`;
     } else if (contextType === 'cert') {
       modalSelectedLabel.textContent = `Электронный подарочный сертификат`;
       modalSelectedMeta.textContent = `Выбранный номинал: ${selectedCertNominal}`;
@@ -4700,8 +4786,10 @@ button {
       e.preventDefault();
       const tariffKey = trigger.getAttribute('data-order-tariff');
       const certFlag = trigger.getAttribute('data-order-cert');
+      const isFromCalc = trigger.id === 'calcOrderBtn';
+      if (isFromCalc) window.__ppCalcUsed = true;
       if (tariffKey) {
-        openOrderModal('tariff', tariffKey);
+        openOrderModal('tariff', tariffKey, isFromCalc);
       } else if (certFlag) {
         openOrderModal('cert');
       } else {
@@ -4824,6 +4912,8 @@ button {
       document.getElementById('calcCarb').textContent = carb + ' г';
       document.getElementById('calcRecTitle').textContent = `Тариф ${best.code} · ${best.kcal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ккал (${best.meals})`;
       document.getElementById('calcRecPrice').innerHTML = `${best.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽ / день · <strong>${best.disc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽ / день от 2 недель (−10%)</strong>`;
+      const goalNames = { loss_soft: 'Похудение', loss_fast: 'Быстрое похудение', maintain: 'Баланс', gain: 'Набор массы' };
+      window.__ppCalcSummary = `норма ${target} ккал (Б:${prot}/Ж:${fat}/У:${carb}, ${sex === 'm' ? 'М' : 'Ж'}, ${age}л, ${h}см/${w}кг, ${goalNames[goal] || goal})`;
       const btn = document.getElementById('calcOrderBtn');
       if (btn) {
         btn.textContent = `Заказать рацион ${best.kcal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ккал`;
@@ -4888,6 +4978,7 @@ button {
     const el = document.getElementById(cid);
     if (el) {
       el.addEventListener('change', () => {
+        window.__ppCalcUsed = true;
         if (!calcTracked) {
           calcTracked = true;
           trackGoal('use_kbzhu_calc');
@@ -4904,16 +4995,68 @@ button {
 })();
 
 
-  // --- v2 Smart Features: Auto NY Banner + Tomsk Next-Delivery Widget + Trial Button + Quick Lead Form ---
+
+  // --- v3 Smart Features: Auto NY Banner + Tomsk Next-Delivery + UTM Source + Modal & Quick Lead CRM ---
   (function initSmartConversionFeatures() {
+    const LEAD_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxH05z2_imTDdTbNwMJm6-RKiT6XYqlws9xHPK9UGpVHzLpC8CLnwFTCLbi3lF0G01o/exec';
+
+    // 0. Persist entry traffic source (UTM / Referrer) across page navigations
+    function detectInitialTrafficSource() {
+      try {
+        const saved = sessionStorage.getItem('pp_entry_source');
+        const params = new URLSearchParams(window.location.search);
+        const utmSrc = params.get('utm_source');
+        const utmMed = params.get('utm_medium');
+        const utmCamp = params.get('utm_campaign');
+        if (utmSrc || utmMed || utmCamp) {
+          const parts = [utmSrc, utmMed, utmCamp].filter(Boolean).join(' / ');
+          const val = 'UTM: ' + parts;
+          sessionStorage.setItem('pp_entry_source', val);
+          return val;
+        }
+        if (params.get('yclid')) {
+          sessionStorage.setItem('pp_entry_source', 'Яндекс Директ (yclid)');
+          return 'Яндекс Директ (yclid)';
+        }
+        if (saved) return saved;
+
+        const ref = (document.referrer || '').toLowerCase();
+        let refLabel = 'Прямой заход';
+        if (ref.includes('2gis.')) refLabel = '2ГИС';
+        else if (ref.includes('yandex.') && ref.includes('maps')) refLabel = 'Яндекс Карты';
+        else if (ref.includes('yandex.') || ref.includes('ya.ru')) refLabel = 'Яндекс Поиск';
+        else if (ref.includes('google.')) refLabel = 'Google Поиск';
+        else if (ref.includes('t.me') || ref.includes('telegram')) refLabel = 'Telegram';
+        else if (ref.includes('vk.com') || ref.includes('vk.ru')) refLabel = 'ВКонтакте';
+        else if (ref.includes('max.ru')) refLabel = 'MAX';
+        else if (ref.includes('instagram.com')) refLabel = 'Instagram';
+        else if (ref && !ref.includes('pp-tomsk.ru')) {
+          try { refLabel = 'Сайт: ' + new URL(document.referrer).hostname; } catch (_) {}
+        }
+        sessionStorage.setItem('pp_entry_source', refLabel);
+        return refLabel;
+      } catch (_) {
+        return 'Прямой заход';
+      }
+    }
+
+    const entryTrafficSource = detectInitialTrafficSource();
+
+    function getPageShortName() {
+      const p = (window.location.pathname || '').toLowerCase();
+      if (p.includes('pohudenie')) return 'Стр. Похудение';
+      if (p.includes('sport-pitanie')) return 'Стр. Спорт-питание';
+      if (p.includes('kalkulyator')) return 'Стр. Калькулятор КБЖУ';
+      return 'Главная';
+    }
+
     // 1. Auto-expiring New Year Banner (hides automatically from Jan 1, 2027 00:00 Tomsk UTC+7)
     const nyBanner = document.getElementById('nySeasonalBanner');
     const nyText = document.getElementById('nyCountdownText');
     const nyCourseBtn = document.getElementById('nyCourseBtn');
     const nowUtcMs = Date.now();
     const tomskMs = nowUtcMs + 7 * 3600 * 1000;
-    const tomskNow = new Date(tomskMs);
-    const nyTargetMs = Date.UTC(2027, 0, 1, 0, 0, 0); // 2027-01-01 00:00 Tomsk compared in shifted UTC
+    const nyTargetMs = Date.UTC(2027, 0, 1, 0, 0, 0);
 
     if (nyBanner) {
       if (tomskMs >= nyTargetMs) {
@@ -4936,32 +5079,35 @@ button {
     const nextDelEl = document.getElementById('nextDeliveryDate');
     const nextDeadEl = document.getElementById('nextDeliveryDeadline');
     if (nextDelEl && nextDeadEl) {
-      const deliveryWeekdays = [0, 2, 4, 6]; // Sun, Tue, Thu, Sat
+      const deliveryWeekdays = [0, 2, 4, 6];
       const dayNamesAcc = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
       const dayNamesGen = ['воскресенья', 'понедельника', 'вторника', 'среды', 'четверга', 'пятницы', 'субботы'];
       const monthsGen = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 
-      let chosenDel = null;
-      let chosenCutoff = null;
-
       for (let addDays = 1; addDays <= 8; addDays++) {
         const candMs = tomskMs + addDays * 86400000;
-        const cand = new Date(candMs);
-        const wd = cand.getUTCDay();
+        const candDate = new Date(candMs);
+        const wd = candDate.getUTCDay();
         if (!deliveryWeekdays.includes(wd)) continue;
 
-        // Cutoff is (cand date - 1 day) at 17:00 Tomsk
-        const cutoffMs = Date.UTC(cand.getUTCFullYear(), cand.getUTCMonth(), cand.getUTCDate() - 1, 17, 0, 0);
-        if (tomskMs < cutoffMs) {
-          chosenDel = cand;
-          chosenCutoff = new Date(cutoffMs);
-          const diffMin = Math.max(1, Math.floor((cutoffMs - tomskMs) / 60000));
+        const cutoffUtcEquiv = Date.UTC(
+          candDate.getUTCFullYear(),
+          candDate.getUTCMonth(),
+          candDate.getUTCDate() - 1,
+          17, 0, 0
+        );
+        if (tomskMs < cutoffUtcEquiv) {
+          const dNum = candDate.getUTCDate();
+          const mName = monthsGen[candDate.getUTCMonth()];
+          const wName = dayNamesAcc[wd];
+          const coverDays = (wd === 6) ? 'рацион на 1 день' : 'рацион на 2 дня';
+          nextDelEl.textContent = `${wName}, ${dNum} ${mName} · 18:00–22:00 (${coverDays})`;
+
+          const diffMin = Math.max(1, Math.floor((cutoffUtcEquiv - tomskMs) / 60000));
           const dh = Math.floor(diffMin / 60);
           const dm = diffMin % 60;
-          const packDays = (wd === 6) ? 'рацион на 1 день' : 'рацион на 2 дня';
-          nextDelEl.textContent = `${dayNamesAcc[wd]}, ${cand.getUTCDate()} ${monthsGen[cand.getUTCMonth()]} · 18:00–22:00 (${packDays})`;
           const timeLeftStr = dh > 24 ? `${Math.floor(dh / 24)} дн. ${dh % 24} ч.` : `${dh} ч. ${dm} мин.`;
-          nextDeadEl.textContent = `Запись до ${dayNamesGen[chosenCutoff.getUTCDay()]} 17:00 (осталось ${timeLeftStr})`;
+          nextDeadEl.textContent = `Запись до ${dayNamesGen[ new Date(cutoffUtcEquiv).getUTCDay() ]} 17:00 (осталось ${timeLeftStr})`;
           break;
         }
       }
@@ -4991,107 +5137,149 @@ button {
       });
     }
 
-    // 4. Quick Lead Form -> Live background webhook (Google Sheet CRM + Telegram @pp_tomsk_zakaz notification)
-    const LEAD_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxH05z2_imTDdTbNwMJm6-RKiT6XYqlws9xHPK9UGpVHzLpC8CLnwFTCLbi3lF0G01o/exec';
-    const qlForm = document.getElementById('quickLeadForm');
-    if (qlForm) {
-      qlForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const nameEl = document.getElementById('qlName');
-        const phoneEl = document.getElementById('qlPhone');
-        const tariffEl = document.getElementById('qlTariff');
-        const channelEl = document.getElementById('qlChannel');
-        const websiteEl = document.getElementById('qlWebsite');
-        const submitBtn = document.getElementById('qlSubmitBtn');
-        const statusBox = document.getElementById('qlStatus');
+    // Shared CRM Sender (used by BOTH #quickLeadForm and #modalLeadForm)
+    async function sendLeadToCrm(opts) {
+      const { nameEl, phoneEl, channelEl, websiteEl, submitBtn, statusBox, tariffText, formPlace, goalId } = opts;
+      const name = (nameEl?.value || '').trim();
+      const phone = (phoneEl?.value || '').trim();
+      const channel = channelEl?.value || 'tg';
+      const website = websiteEl?.value || '';
+      if (!name || !phone) return;
 
-        const name = (nameEl?.value || '').trim();
-        const phone = (phoneEl?.value || '').trim();
-        const tariff = tariffEl?.value || '';
-        const channel = channelEl?.value || 'tg';
-        const website = websiteEl?.value || '';
+      const channelLabels = { tg: 'Telegram', max: 'MAX' };
+      const channelLabel = channelLabels[channel] || 'мессенджер';
+      const source = `${entryTrafficSource} → ${getPageShortName()} (${formPlace})`;
+      const calcInfo = (window.__ppCalcUsed && window.__ppCalcSummary) ? window.__ppCalcSummary : '';
 
-        if (!name || !phone) return;
+      let fullTariff = tariffText || 'Подбор рациона';
+      if (calcInfo && !fullTariff.includes('КБЖУ:')) {
+        fullTariff += ` [КБЖУ: ${calcInfo}]`;
+      }
 
-        const channelLabels = { tg: 'Telegram', max: 'MAX', vk: 'ВКонтакте' };
-        const channelLabel = channelLabels[channel] || 'мессенджер';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправляем…';
+      }
+      if (statusBox) {
+        statusBox.style.display = 'none';
+        statusBox.className = 'ql-status';
+      }
 
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Отправляем…';
+      const payload = JSON.stringify({
+        name,
+        phone,
+        tariff: fullTariff,
+        channel,
+        source,
+        calc: calcInfo,
+        website
+      });
+
+      try {
+        const resp = await fetch(LEAD_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: payload
+        });
+        let data = null;
+        try { data = await resp.json(); } catch (_) {}
+        if (!resp.ok || (data && data.ok === false)) {
+          throw new Error((data && data.error) || 'HTTP ' + resp.status);
         }
-        if (statusBox) {
-          statusBox.style.display = 'none';
-          statusBox.className = 'ql-status';
-        }
 
-        const payload = JSON.stringify({ name, phone, tariff, channel, website });
-
-        try {
-          const resp = await fetch(LEAD_WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: payload
-          });
-          let data = null;
-          try { data = await resp.json(); } catch (_) {}
-          if (!resp.ok || (data && data.ok === false)) {
-            throw new Error((data && data.error) || 'HTTP ' + resp.status);
-          }
-
-          if (typeof ym === 'function') {
-            try { ym(114298895, 'reachGoal', 'quick_lead_form'); } catch (_) {}
-          }
-
-          if (submitBtn) {
-            submitBtn.textContent = '✓ Заявка отправлена!';
-          }
-          if (statusBox) {
-            statusBox.className = 'ql-status ql-status--success';
-            statusBox.style.display = 'block';
-            statusBox.innerHTML = '';
-            const strongEl = document.createElement('strong');
-            strongEl.textContent = `✅ Спасибо, ${name}! Заявка уже у менеджера PP TOMSK.`;
-            const spanEl = document.createElement('div');
-            spanEl.style.marginTop = '4px';
-            spanEl.textContent = `Мы напишем вам в ${channelLabel} (${phone}) в течение 5 минут в рабочее время (10:00–22:00).`;
-            statusBox.appendChild(strongEl);
-            statusBox.appendChild(spanEl);
-          }
-
-          if (nameEl) nameEl.value = '';
-          if (phoneEl) phoneEl.value = '';
-
-          setTimeout(() => {
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.textContent = 'Жду сообщения →';
-            }
-          }, 4000);
-        } catch (err) {
-          // Fallback no-cors attempt + direct Telegram link so zero leads are ever lost
+        if (typeof ym === 'function') {
           try {
-            await fetch(LEAD_WEBHOOK_URL, {
-              method: 'POST',
-              mode: 'no-cors',
-              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-              body: payload
-            });
+            ym(114298895, 'reachGoal', 'quick_lead_form');
+            if (goalId) ym(114298895, 'reachGoal', goalId);
           } catch (_) {}
+        }
 
-          const fallbackMsg = `Здравствуйте! Меня зовут ${name}, мой контакт: ${phone}. Интересует: ${tariff}.`;
-          const tgHref = 'https://t.me/pp_tomsk_zakaz?text=' + encodeURIComponent(fallbackMsg);
+        if (submitBtn) submitBtn.textContent = '✓ Заявка отправлена!';
+        if (statusBox) {
+          statusBox.className = 'ql-status ql-status--success';
+          statusBox.style.display = 'block';
+          statusBox.innerHTML = '';
+          const strongEl = document.createElement('strong');
+          strongEl.textContent = `✅ Спасибо, ${name}! Заявка передана менеджеру PP TOMSK.`;
+          const spanEl = document.createElement('div');
+          spanEl.style.marginTop = '4px';
+          spanEl.textContent = `Напишем вам в ${channelLabel} (${phone}) в течение 5 минут (10:00–22:00).`;
+          statusBox.appendChild(strongEl);
+          statusBox.appendChild(spanEl);
+        }
 
-          if (statusBox) {
-            statusBox.className = 'ql-status ql-status--success';
-            statusBox.style.display = 'block';
-            statusBox.innerHTML = `✅ Заявка отправлена! Если хотите написать нам первыми прямо сейчас — <a href="${tgHref}" target="_blank" rel="noopener noreferrer">открыть чат @pp_tomsk_zakaz →</a>`;
-          }
+        if (nameEl) nameEl.value = '';
+        if (phoneEl) phoneEl.value = '';
+
+        setTimeout(() => {
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Жду сообщения →';
           }
+        }, 4000);
+      } catch (err) {
+        try {
+          await fetch(LEAD_WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: payload
+          });
+        } catch (_) {}
+
+        const fallbackMsg = `Здравствуйте! Меня зовут ${name}, контакт: ${phone}. Интересует: ${fullTariff}.`;
+        const tgHref = 'https://t.me/pp_tomsk_zakaz?text=' + encodeURIComponent(fallbackMsg);
+
+        if (statusBox) {
+          statusBox.className = 'ql-status ql-status--success';
+          statusBox.style.display = 'block';
+          statusBox.innerHTML = `✅ Заявка отправлена! Хотите написать первыми прямо сейчас — <a href="${tgHref}" target="_blank" rel="noopener noreferrer">открыть @pp_tomsk_zakaz →</a>`;
         }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Жду сообщения →';
+        }
+      }
+    }
+
+    // 4. Bottom Quick Lead Form
+    const qlForm = document.getElementById('quickLeadForm');
+    if (qlForm) {
+      qlForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        sendLeadToCrm({
+          nameEl: document.getElementById('qlName'),
+          phoneEl: document.getElementById('qlPhone'),
+          channelEl: document.getElementById('qlChannel'),
+          websiteEl: document.getElementById('qlWebsite'),
+          submitBtn: document.getElementById('qlSubmitBtn'),
+          statusBox: document.getElementById('qlStatus'),
+          tariffText: document.getElementById('qlTariff')?.value || 'Подбор рациона',
+          formPlace: 'Форма в контактах',
+          goalId: 'bottom_lead_form'
+        });
+      });
+    }
+
+    // 5. Popup Modal Inline Lead Form (#modalLeadForm)
+    const mlForm = document.getElementById('modalLeadForm');
+    if (mlForm) {
+      mlForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const labelTxt = document.getElementById('modalSelectedLabel')?.textContent?.trim() || 'Заказ рациона';
+        const metaTxt = document.getElementById('modalSelectedMeta')?.textContent?.trim() || '';
+        const combinedTariff = metaTxt && !metaTxt.startsWith('Работаем') ? `${labelTxt} (${metaTxt})` : labelTxt;
+        sendLeadToCrm({
+          nameEl: document.getElementById('mlName'),
+          phoneEl: document.getElementById('mlPhone'),
+          channelEl: document.getElementById('mlChannel'),
+          websiteEl: document.getElementById('mlWebsite'),
+          submitBtn: document.getElementById('mlSubmitBtn'),
+          statusBox: document.getElementById('mlStatus'),
+          tariffText: combinedTariff,
+          formPlace: 'Окно заказа',
+          goalId: 'modal_lead_form'
+        });
       });
     }
   })();
