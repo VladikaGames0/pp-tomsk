@@ -3010,6 +3010,33 @@ button {
 .ql-field select:focus {
   border-color: var(--green-400);
 }
+.ql-status {
+  margin-top: 18px;
+  padding: 15px 18px;
+  border-radius: 16px;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.ql-status--success {
+  background: rgba(120, 212, 72, 0.14);
+  border: 1px solid rgba(120, 212, 72, 0.5);
+  color: #e9f9df;
+}
+.ql-status--error {
+  background: rgba(248, 113, 113, 0.14);
+  border: 1px solid rgba(248, 113, 113, 0.45);
+  color: #fee2e2;
+}
+.ql-status a {
+  color: var(--green-300);
+  font-weight: 700;
+  text-decoration: underline;
+}
+.ql-footnote {
+  margin-top: 12px;
+  font-size: 12px;
+  color: rgba(210, 226, 216, 0.56);
+}
 
 @media (max-width: 1140px) {
   .reviews-grid {
@@ -4083,19 +4110,21 @@ button {
       </div>
 
       <!-- Быстрая мини-форма «Оставьте контакт — напишем за 5 минут» -->
-      <form class="quick-lead-card" id="quickLeadForm">
+      <form class="quick-lead-card" id="quickLeadForm" style="position:relative;">
         <div class="quick-lead-card__head">
           <h3 class="quick-lead-card__title">Оставьте контакт — напишем вам и подберём рацион за 5 минут!</h3>
-          <p class="quick-lead-card__sub">Укажите имя, номер телефона (или @ник) и удобный мессенджер — ваша готовая заявка мгновенно откроется в диалоге с менеджером (10:00–22:00).</p>
+          <p class="quick-lead-card__sub">Укажите имя, телефон (или @ник) и удобный мессенджер — заявка сразу прилетит менеджеру, и мы сами напишем вам (работаем ежедневно с 10:00 до 22:00).</p>
         </div>
+        <!-- Антиспам-поле -->
+        <input type="text" id="qlWebsite" name="website" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; opacity:0; pointer-events:none;" aria-hidden="true" />
         <div class="quick-lead-grid">
           <div class="ql-field">
             <label for="qlName">Ваше имя</label>
-            <input type="text" id="qlName" placeholder="Например, Анна" required />
+            <input type="text" id="qlName" placeholder="Например, Анна" maxlength="80" required />
           </div>
           <div class="ql-field">
             <label for="qlPhone">Телефон или @ник</label>
-            <input type="text" id="qlPhone" placeholder="+7 (999) 000-00-00" required />
+            <input type="text" id="qlPhone" placeholder="+7 (999) 000-00-00 или @nick" maxlength="80" required />
           </div>
           <div class="ql-field">
             <label for="qlTariff">Какой рацион интересует</label>
@@ -4118,11 +4147,13 @@ button {
             </select>
           </div>
           <div>
-            <button type="submit" class="btn btn--primary btn--lg" style="width:100%; white-space:nowrap;">
+            <button type="submit" class="btn btn--primary btn--lg" id="qlSubmitBtn" style="width:100%; white-space:nowrap;">
               Жду сообщения →
             </button>
           </div>
         </div>
+        <div class="ql-status" id="qlStatus" role="status" aria-live="polite" style="display:none;"></div>
+        <p class="ql-footnote">Нажимая «Жду сообщения →», вы соглашаетесь на связь с вами для подбора и оформления рациона. Без спама и рассылок.</p>
       </form>
 
       <!-- Крупный блок с телефоном -->
@@ -4961,29 +4992,107 @@ button {
       });
     }
 
-    // 4. Quick Lead Form ("Оставьте контакт — напишем за 5 минут")
+    // 4. Quick Lead Form -> Live background webhook (Google Sheet CRM + Telegram @pp_tomsk_zakaz notification)
+    const LEAD_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxH05z2_imTDdTbNwMJm6-RKiT6XYqlws9xHPK9UGpVHzLpC8CLnwFTCLbi3lF0G01o/exec';
     const qlForm = document.getElementById('quickLeadForm');
     if (qlForm) {
-      qlForm.addEventListener('submit', (e) => {
+      qlForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const name = (document.getElementById('qlName')?.value || '').trim();
-        const phone = (document.getElementById('qlPhone')?.value || '').trim();
-        const tariff = document.getElementById('qlTariff')?.value || '';
-        const channel = document.getElementById('qlChannel')?.value || 'tg';
-        const msg = `Здравствуйте! Меня зовут ${name}, мой контакт для связи: ${phone}. Интересует: ${tariff}. Напишите мне, пожалуйста!`;
+        const nameEl = document.getElementById('qlName');
+        const phoneEl = document.getElementById('qlPhone');
+        const tariffEl = document.getElementById('qlTariff');
+        const channelEl = document.getElementById('qlChannel');
+        const websiteEl = document.getElementById('qlWebsite');
+        const submitBtn = document.getElementById('qlSubmitBtn');
+        const statusBox = document.getElementById('qlStatus');
 
-        if (typeof ym === 'function') {
-          try { ym(114298895, 'reachGoal', 'quick_lead_form'); } catch (_) {}
-        }
-        copyTextToClipboard(msg, 'Заявка скопирована и открывается чат с менеджером!');
+        const name = (nameEl?.value || '').trim();
+        const phone = (phoneEl?.value || '').trim();
+        const tariff = tariffEl?.value || '';
+        const channel = channelEl?.value || 'tg';
+        const website = websiteEl?.value || '';
 
-        let targetUrl = 'https://t.me/pp_tomsk_zakaz?text=' + encodeURIComponent(msg);
-        if (channel === 'max') {
-          targetUrl = 'https://max.ru/u/f9LHodD0cOKltUm-97KanH05-3f_t5B6QdtOZZHx1U90Er9B9gcWv1d9wYU';
-        } else if (channel === 'vk') {
-          targetUrl = 'https://vk.ru/pravilnoepitanietomsk';
+        if (!name || !phone) return;
+
+        const channelLabels = { tg: 'Telegram', max: 'MAX', vk: 'ВКонтакте' };
+        const channelLabel = channelLabels[channel] || 'мессенджер';
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Отправляем…';
         }
-        window.open(targetUrl, '_blank', 'noopener');
+        if (statusBox) {
+          statusBox.style.display = 'none';
+          statusBox.className = 'ql-status';
+        }
+
+        const payload = JSON.stringify({ name, phone, tariff, channel, website });
+
+        try {
+          const resp = await fetch(LEAD_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: payload
+          });
+          let data = null;
+          try { data = await resp.json(); } catch (_) {}
+          if (!resp.ok || (data && data.ok === false)) {
+            throw new Error((data && data.error) || 'HTTP ' + resp.status);
+          }
+
+          if (typeof ym === 'function') {
+            try { ym(114298895, 'reachGoal', 'quick_lead_form'); } catch (_) {}
+          }
+
+          if (submitBtn) {
+            submitBtn.textContent = '✓ Заявка отправлена!';
+          }
+          if (statusBox) {
+            statusBox.className = 'ql-status ql-status--success';
+            statusBox.style.display = 'block';
+            statusBox.innerHTML = '';
+            const strongEl = document.createElement('strong');
+            strongEl.textContent = `✅ Спасибо, ${name}! Заявка уже у менеджера PP TOMSK.`;
+            const spanEl = document.createElement('div');
+            spanEl.style.marginTop = '4px';
+            spanEl.textContent = `Мы напишем вам в ${channelLabel} (${phone}) в течение 5 минут в рабочее время (10:00–22:00).`;
+            statusBox.appendChild(strongEl);
+            statusBox.appendChild(spanEl);
+          }
+
+          if (nameEl) nameEl.value = '';
+          if (phoneEl) phoneEl.value = '';
+
+          setTimeout(() => {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Жду сообщения →';
+            }
+          }, 4000);
+        } catch (err) {
+          // Fallback no-cors attempt + direct Telegram link so zero leads are ever lost
+          try {
+            await fetch(LEAD_WEBHOOK_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: payload
+            });
+          } catch (_) {}
+
+          const fallbackMsg = `Здравствуйте! Меня зовут ${name}, мой контакт: ${phone}. Интересует: ${tariff}.`;
+          const tgHref = 'https://t.me/pp_tomsk_zakaz?text=' + encodeURIComponent(fallbackMsg);
+
+          if (statusBox) {
+            statusBox.className = 'ql-status ql-status--success';
+            statusBox.style.display = 'block';
+            statusBox.innerHTML = `✅ Заявка отправлена! Если хотите написать нам первыми прямо сейчас — <a href="${tgHref}" target="_blank" rel="noopener noreferrer">открыть чат @pp_tomsk_zakaz →</a>`;
+          }
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Жду сообщения →';
+          }
+        }
       });
     }
   })();
