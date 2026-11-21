@@ -46,6 +46,25 @@
         "logo": "https://pp-tomsk.ru/logo.jpg",
         "image": "https://pp-tomsk.ru/hero-studio.jpg",
         "telephone": "+7-923-433-11-83",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "пер. Луговой, 16",
+          "addressLocality": "Томск",
+          "addressRegion": "Томская область",
+          "addressCountry": "RU"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "10:00",
+          "closes": "22:00"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "bestRating": "5",
+          "ratingCount": "28"
+        },
         "servesCuisine": "Правильное питание, Здоровое питание, ПП-рационы",
         "priceRange": "900 ₽ – 1750 ₽",
         "areaServed": [
@@ -2595,6 +2614,397 @@ button {
   }
 }
 
+
+/* ==========================================================================
+   v2 Conversion Blocks: NY Banner, Trial + Next Delivery, 5.0 Reviews, FAQ, Quick Form
+   ========================================================================== */
+.ny-banner {
+  background: linear-gradient(135deg, #0d2418 0%, #173b27 52%, #1f2d16 100%);
+  border-bottom: 1px solid rgba(251, 191, 36, 0.35);
+  padding: 12px 0;
+  color: #ffffff;
+}
+.ny-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.ny-banner__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.ny-banner__pill {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  color: #1c1102;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.ny-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ny-banner__btn {
+  font-size: 13px;
+  font-weight: 800;
+  padding: 7px 15px;
+  border-radius: 999px;
+  background: rgba(120, 212, 72, 0.2);
+  border: 1px solid rgba(120, 212, 72, 0.55);
+  color: #d9f99d;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ny-banner__btn:hover {
+  background: var(--green-400);
+  color: #07120a;
+}
+
+/* Smart Next-Delivery + Trial Box under Tariffs */
+.trial-smart-card {
+  margin-top: 34px;
+  background: linear-gradient(135deg, #101d15 0%, #182b20 100%);
+  border: 1.5px solid rgba(120, 212, 72, 0.42);
+  border-radius: var(--radius-xl);
+  padding: 32px 36px;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+  box-shadow: 0 22px 48px rgba(9, 20, 14, 0.16);
+}
+.trial-smart-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: rgba(120, 212, 72, 0.16);
+  border: 1px solid rgba(120, 212, 72, 0.45);
+  color: var(--green-300);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+.trial-smart-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.24;
+  margin-bottom: 10px;
+}
+.trial-smart-card__desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #cfe0d5;
+  margin-bottom: 18px;
+}
+.next-delivery-widget {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ndw-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.ndw-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green-400);
+  margin-top: 6px;
+  box-shadow: 0 0 12px var(--green-400);
+  flex-shrink: 0;
+}
+.ndw-label {
+  font-size: 12.5px;
+  color: #a9c2b2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+.ndw-val {
+  font-family: var(--font-display);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 2px;
+}
+.ndw-deadline {
+  font-size: 13.5px;
+  color: #fde68a;
+  font-weight: 700;
+}
+
+/* Reviews 5.0 Section */
+.reviews-section {
+  background: var(--bg-light);
+  color: var(--text-on-light);
+  padding: 86px 0 24px;
+}
+.maps-badges-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.map-rating-card {
+  background: #ffffff;
+  border: 1.5px solid #dce8d6;
+  border-radius: 24px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  text-decoration: none;
+  color: var(--text-on-light);
+  box-shadow: var(--shadow-card-light);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.map-rating-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--green-500);
+}
+.map-rating-card__score {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.score-pill {
+  background: linear-gradient(135deg, #15261c 0%, #1f3829 100%);
+  color: #fbbf24;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 18px;
+  white-space: nowrap;
+}
+.map-rating-card__name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.map-rating-card__sub {
+  font-size: 13.5px;
+  color: var(--text-on-light-muted);
+}
+.map-rating-card__cta {
+  font-size: 14px;
+  font-weight: 800;
+  color: #2c6e12;
+  white-space: nowrap;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.review-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 22px;
+  padding: 24px 22px;
+  box-shadow: var(--shadow-card-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+.review-card__stars {
+  color: #f59e0b;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.review-card__text {
+  font-size: 14.2px;
+  line-height: 1.58;
+  color: var(--text-on-light);
+}
+.review-card__author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid #edf3ea;
+  font-size: 13px;
+}
+.review-card__author strong {
+  color: var(--text-on-light);
+}
+.review-card__tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2c6e12;
+  background: #eaf6e3;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* FAQ Accordion Section */
+.faq-section {
+  background: var(--bg-light);
+  color: var(--text-on-light);
+  padding: 16px 0 88px;
+}
+.faq-list {
+  max-width: 920px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.faq-item {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(12, 24, 16, 0.04);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 26px;
+  font-family: var(--font-display);
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--text-on-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-plus {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #eef7e8;
+  color: #2c6e12;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  font-weight: 800;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.faq-item[open] .faq-plus {
+  transform: rotate(45deg);
+  background: var(--green-400);
+  color: #07120a;
+}
+.faq-answer {
+  padding: 0 26px 22px;
+  font-size: 15px;
+  line-height: 1.62;
+  color: var(--text-on-light-muted);
+}
+
+/* Quick Contact Form ("Напишем за 5 минут") */
+.quick-lead-card {
+  background: linear-gradient(145deg, #132119 0%, #0e1812 100%);
+  border: 1.5px solid rgba(120, 212, 72, 0.38);
+  border-radius: var(--radius-xl);
+  padding: 34px 36px;
+  margin-bottom: 28px;
+}
+.quick-lead-card__head {
+  margin-bottom: 22px;
+}
+.quick-lead-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 26px);
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+.quick-lead-card__sub {
+  font-size: 14.5px;
+  color: var(--text-on-dark-muted);
+}
+.quick-lead-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.1fr 1fr auto;
+  gap: 14px;
+  align-items: end;
+}
+.ql-field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #b8cec0;
+  margin-bottom: 6px;
+}
+.ql-field input,
+.ql-field select {
+  width: 100%;
+  padding: 13px 15px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(7, 13, 10, 0.78);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14.5px;
+  outline: none;
+}
+.ql-field input:focus,
+.ql-field select:focus {
+  border-color: var(--green-400);
+}
+
+@media (max-width: 1140px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .quick-lead-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 960px) {
+  .trial-smart-card,
+  .maps-badges-row {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 680px) {
+  .reviews-grid,
+  .quick-lead-grid {
+    grid-template-columns: 1fr;
+  }
+  .trial-smart-card,
+  .quick-lead-card {
+    padding: 24px 20px;
+  }
+  .map-rating-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2608,6 +3018,21 @@ button {
       <a href="#tariffs" class="promo-bar__link">Смотреть прайс →</a>
     </div>
   </div>
+
+  <!-- Автоматическая предновогодняя плашка (сама скрывается 1 января 2027) -->
+  <div class="ny-banner" id="nySeasonalBanner">
+    <div class="container ny-banner__inner">
+      <div class="ny-banner__left">
+        <span class="ny-banner__pill">🎄 К Новому году</span>
+        <span id="nyCountdownText">Встречайте Новый год в лёгкости и отличной форме — без готовки и диет!</span>
+      </div>
+      <div class="ny-banner__actions">
+        <a href="#tariffs" class="ny-banner__btn" id="nyCourseBtn">Курс −10% к праздникам →</a>
+        <button type="button" class="ny-banner__btn" data-open-order data-order-cert="true">Подарочный сертификат 🎁</button>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Шапка сайта -->
   <header class="site-header" id="siteHeader">
@@ -2623,8 +3048,10 @@ button {
       <nav class="main-nav" aria-label="Основная навигация">
         <a href="#calculator" class="main-nav__link">Калькулятор КБЖУ</a>
         <a href="#tariffs" class="main-nav__link">Тарифы</a>
-        <a href="#menu" class="main-nav__link">Меню и фото</a>
+        <a href="#menu" class="main-nav__link">Меню</a>
+        <a href="#reviews" class="main-nav__link">Отзывы ★ 5.0</a>
         <a href="#delivery" class="main-nav__link">Доставка</a>
+        <a href="#faq" class="main-nav__link">Вопросы</a>
         <a href="#contacts" class="main-nav__link">Контакты</a>
       </nav>
 
@@ -2689,7 +3116,9 @@ button {
         <a href="#calculator" class="mobile-drawer__link">Калькулятор КБЖУ</a>
         <a href="#tariffs" class="mobile-drawer__link">Тарифы и цены</a>
         <a href="#menu" class="mobile-drawer__link">Меню и живые фото</a>
+        <a href="#reviews" class="mobile-drawer__link">Отзывы клиентов ★ 5.0</a>
         <a href="#delivery" class="mobile-drawer__link">Условия доставки</a>
+        <a href="#faq" class="mobile-drawer__link">Частые вопросы (FAQ)</a>
         <a href="#contacts" class="mobile-drawer__link">Контакты и соцсети</a>
       </nav>
       <div class="mobile-drawer__contacts">
@@ -3185,6 +3614,36 @@ button {
             </div>
           </article>
         </div>
+        <!-- Умный виджет ближайшей доставки + Пробный заказ на 1–2 дня -->
+        <div class="trial-smart-card">
+          <div>
+            <span class="trial-smart-card__tag">✨ Первый раз в PP TOMSK?</span>
+            <h3 class="trial-smart-card__title">Не обязательно сразу платить за 2 недели — закажите пробный рацион на 1–2 дня!</h3>
+            <p class="trial-smart-card__desc">
+              Попробуйте нашу кухню без риска (от <strong>1 000 ₽/день</strong>, доставка по Томску — <strong>0 ₽</strong>): оцените вкус горячих блюд, свежих салатов и ПП-десертов, а уже потом переходите на выгодный курс со скидкой <strong>−10%</strong>.
+            </p>
+            <button type="button" class="btn btn--primary" id="trialOrderBtn">
+              Попробовать на ближайшую доставку →
+            </button>
+          </div>
+
+          <div class="next-delivery-widget" aria-live="polite">
+            <div class="ndw-row">
+              <span class="ndw-dot"></span>
+              <div>
+                <div class="ndw-label">Ближайший доступный развоз по Томску</div>
+                <div class="ndw-val" id="nextDeliveryDate">Вт / Чт / Сб / Вс · 18:00 – 22:00</div>
+              </div>
+            </div>
+            <div class="ndw-row">
+              <span style="font-size:16px; line-height:1;">⏰</span>
+              <div>
+                <div class="ndw-label">Закрытие записи на этот маршрут</div>
+                <div class="ndw-deadline" id="nextDeliveryDeadline">За день до доставки до 17:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -3322,6 +3781,97 @@ button {
       </div>
     </section>
 
+    <!-- Рейтинг 5.0 в 2ГИС и Яндекс Картах + Живые отзывы томичей -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag section-tag--light">Нам доверяют в Томске</span>
+          <h2 class="section-title section-title--light">Максимальная оценка ★ 5.0 на независимых картах</h2>
+          <p class="section-desc section-desc--light">
+            Готовим по адресу г. Томск, пер. Луговой, 16. Проверьте честные отзывы наших клиентов в 2ГИС и на Яндекс Картах в один клик!
+          </p>
+        </div>
+
+        <div class="maps-badges-row">
+          <a href="https://2gis.ru/tomsk/search/Pp_tomsk" target="_blank" rel="noopener noreferrer" class="map-rating-card">
+            <div class="map-rating-card__score">
+              <span class="score-pill">★ 5.0</span>
+              <div>
+                <div class="map-rating-card__name">2ГИС · г. Томск</div>
+                <div class="map-rating-card__sub">пер. Луговой, 16 · Проверенные отзывы клиентов</div>
+              </div>
+            </div>
+            <span class="map-rating-card__cta">Открыть 2ГИС ↗</span>
+          </a>
+
+          <a href="https://yandex.ru/maps/-/CXSkES~1" target="_blank" rel="noopener noreferrer" class="map-rating-card">
+            <div class="map-rating-card__score">
+              <span class="score-pill">★ 5.0</span>
+              <div>
+                <div class="map-rating-card__name">Яндекс Карты</div>
+                <div class="map-rating-card__sub">Максимальный рейтинг службы доставки PP TOMSK</div>
+              </div>
+            </div>
+            <span class="map-rating-card__cta">Яндекс Карты ↗</span>
+          </a>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div>
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">
+                «Заказываю рацион Balance 1500 уже второй месяц. Огромный плюс — вообще нет сухой однообразной грудки! Шашлычки, рыба, салаты со свежей зеленью, а от десерта "Красный бархат" без сахара просто в восторге. Минус 4,5 кг без голода!»
+              </p>
+            </div>
+            <div class="review-card__author">
+              <strong>Екатерина М.</strong>
+              <span class="review-card__tag">Balance · 1 500 ккал</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div>
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">
+                «Брал Fit 2000 под зал, чтобы добирать белок и не стоять вечером у плиты после работы. Порции реально сытные, привозят вечером чётко в интервал, утром просто закинул контейнеры в сумку и уехал в офис. Сплошная экономия времени!»
+              </p>
+            </div>
+            <div class="review-card__author">
+              <strong>Дмитрий К.</strong>
+              <span class="review-card__tag">Fit · 2 000 ккал</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div>
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">
+                «Сначала взяла 2 дня на пробу, потому что боялась, что не наемся на 1300 ккал. В итоге 4 блюда в день — сытая до самого вечера и вообще перестала тянуться за конфетами к чаю! Сразу продлила на 2 недели со скидкой 10%.»
+              </p>
+            </div>
+            <div class="review-card__author">
+              <strong>Анна В.</strong>
+              <span class="review-card__tag">Slim · 1 300 ккал</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div>
+              <div class="review-card__stars">★★★★★</div>
+              <p class="review-card__text">
+                «Заказываем вдвоём с мужем (мне 1500, ему Power 2500). По деньгам со скидкой выходит даже выгоднее, чем мы раньше оставляли в супермаркетах и доставках роллов, зато дома всегда чистая кухня и свежая домашняя еда!»
+              </p>
+            </div>
+            <div class="review-card__author">
+              <strong>Ольга и Сергей</strong>
+              <span class="review-card__tag">Семейный заказ</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- Условия доставки и правила заказа -->
     <section class="delivery-section" id="delivery">
       <div class="container">
@@ -3449,6 +3999,81 @@ button {
       </div>
     </section>
 
+    <!-- Частые вопросы и ответы (FAQ) -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag section-tag--light">Вопросы и ответы</span>
+          <h2 class="section-title section-title--light">Всё, что важно знать перед первым заказом</h2>
+          <p class="section-desc section-desc--light">
+            Собрали честные ответы на самые частые вопросы наших клиентов о готовке, хранении, контейнерах и переносе доставок.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>
+              <span>В какой посуде привозят еду и можно ли греть контейнеры в микроволновке?</span>
+              <span class="faq-plus">+</span>
+            </summary>
+            <div class="faq-answer">
+              Все блюда упакованы в индивидуальные герметичные пищевые контейнеры, которые не протекают в сумке. Они полностью подходят для разогрева в СВЧ-печи — достаточно снять или слегка приоткрыть крышку (и убрать баночку с холодным соусом, если она внутри) и погреть горячее блюдо 1,5–2 минуты. Мыть посуду после приёма пищи не нужно!
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Насколько свежие блюда и сколько они хранятся в холодильнике?</span>
+              <span class="faq-plus">+</span>
+            </summary>
+            <div class="faq-answer">
+              Мы не используем замороженные заготовки и консерванты: закупаем охлаждённые продукты рано утром в день доставки, готовим на собственной кухне (пер. Луговой, 16) и уже вечером с 18:00 до 22:00 привозим вам. В бытовом холодильнике при температуре +2…+6 °C рационы спокойно хранятся 48 часов — ровно на 1–2 дня до следующего вечернего привоза.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Что делать, если я не ем рыбу, грибы, лук или у меня пищевая аллергия?</span>
+              <span class="faq-plus">+</span>
+            </summary>
+            <div class="faq-answer">
+              Обязательно предупредите нашего менеджера при оформлении заказа в <a href="https://t.me/pp_tomsk_zakaz" target="_blank" rel="noopener noreferrer" style="color:#2c6e12; font-weight:700;">@pp_tomsk_zakaz</a> или по телефону 8-923-433-11-83. Мы пришлём актуальный состав блюд на ближайшие дни и подскажем оптимальное решение с учётом ваших строгих ограничений.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Можно ли сначала заказать всего 1–2 дня на пробу?</span>
+              <span class="faq-plus">+</span>
+            </summary>
+            <div class="faq-answer">
+              Конечно! Вы можете взять пробный сет на ближайшую доставку (на 1 день в субботу или на 2 дня во вторник, четверг и воскресенье) по базовой цене тарифа от 1 000 ₽/день — доставка по Томску уже бесплатная. Как только убедитесь во вкусе и сытности порций, сможете перейти на 2-недельный курс со скидкой −10%.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Можно ли заморозить или перенести доставку, если нужно уехать?</span>
+              <span class="faq-plus">+</span>
+            </summary>
+            <div class="faq-answer">
+              Да! Если у вас меняются планы, просто напишите менеджеру <strong>за день до доставки до 20:00</strong> — мы бесплатно заморозим ваш курс и перенесём оплаченные дни на удобную дату. Обратите внимание: при отмене после 20:00 продукты на утро уже закуплены под вас, поэтому средства за этот день не возвращаются.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Как оформить и оплатить заказ?</span>
+              <span class="faq-plus">+</span>
+            </summary>
+            <div class="faq-answer">
+              Мы работаем и принимаем заявки ежедневно с 10:00 до 22:00. Выберите программу на сайте или заполните быструю форму ниже — менеджер свяжется с вами за несколько минут, подтвердит адрес и удобное вечернее окно (18:00–22:00). Заказ и оплата на ближайший маршрут принимаются за день до доставки до 17:00.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Контакты и Подвал -->
@@ -3461,6 +4086,49 @@ button {
           Поможем подобрать калорийность под вашу цель и примем заказ на ближайшую доставку в Томске.
         </p>
       </div>
+
+      <!-- Быстрая мини-форма «Оставьте контакт — напишем за 5 минут» -->
+      <form class="quick-lead-card" id="quickLeadForm">
+        <div class="quick-lead-card__head">
+          <h3 class="quick-lead-card__title">Оставьте контакт — напишем вам и подберём рацион за 5 минут!</h3>
+          <p class="quick-lead-card__sub">Укажите имя, номер телефона (или @ник) и удобный мессенджер — ваша готовая заявка мгновенно откроется в диалоге с менеджером (10:00–22:00).</p>
+        </div>
+        <div class="quick-lead-grid">
+          <div class="ql-field">
+            <label for="qlName">Ваше имя</label>
+            <input type="text" id="qlName" placeholder="Например, Анна" required />
+          </div>
+          <div class="ql-field">
+            <label for="qlPhone">Телефон или @ник</label>
+            <input type="text" id="qlPhone" placeholder="+7 (999) 000-00-00" required />
+          </div>
+          <div class="ql-field">
+            <label for="qlTariff">Какой рацион интересует</label>
+            <select id="qlTariff">
+              <option value="Пробный заказ на 1–2 дня">Пробный заказ на 1–2 дня</option>
+              <option value="Помогите подобрать калорийность">Помогите подобрать КБЖУ</option>
+              <option value="Balance 1500 ккал (Хит, 5 блюд)" selected>Balance 1500 ккал ★ Хит</option>
+              <option value="Light 1000 ккал (3 блюда)">Light 1000 ккал (от 900 ₽)</option>
+              <option value="Slim 1300 ккал (4 блюда)">Slim 1300 ккал (от 1 035 ₽)</option>
+              <option value="Fit 2000 ккал (5 блюд)">Fit 2000 ккал (от 1 395 ₽)</option>
+              <option value="Power 2500 ккал (5 блюд)">Power 2500 ккал (от 1 575 ₽)</option>
+            </select>
+          </div>
+          <div class="ql-field">
+            <label for="qlChannel">Где вам написать?</label>
+            <select id="qlChannel">
+              <option value="tg" selected>Написать в Telegram</option>
+              <option value="max">Написать в MAX</option>
+              <option value="vk">Написать ВКонтакте</option>
+            </select>
+          </div>
+          <div>
+            <button type="submit" class="btn btn--primary btn--lg" style="width:100%; white-space:nowrap;">
+              Жду сообщения →
+            </button>
+          </div>
+        </div>
+      </form>
 
       <!-- Крупный блок с телефоном -->
       <div class="phone-hero-card">
@@ -4209,6 +4877,112 @@ button {
   }
 
 })();
+
+
+  // --- v2 Smart Features: Auto NY Banner + Tomsk Next-Delivery Widget + Trial Button + Quick Lead Form ---
+  (function initSmartConversionFeatures() {
+    // 1. Auto-expiring New Year Banner (hides automatically from Jan 1, 2027 00:00 Tomsk UTC+7)
+    const nyBanner = document.getElementById('nySeasonalBanner');
+    const nyText = document.getElementById('nyCountdownText');
+    const nyCourseBtn = document.getElementById('nyCourseBtn');
+    const nowUtcMs = Date.now();
+    const tomskMs = nowUtcMs + 7 * 3600 * 1000;
+    const tomskNow = new Date(tomskMs);
+    const nyTargetMs = Date.UTC(2027, 0, 1, 0, 0, 0); // 2027-01-01 00:00 Tomsk compared in shifted UTC
+
+    if (nyBanner) {
+      if (tomskMs >= nyTargetMs) {
+        nyBanner.style.display = 'none';
+      } else if (nyText) {
+        const daysLeft = Math.max(1, Math.ceil((nyTargetMs - tomskMs) / 86400000));
+        const dMod10 = daysLeft % 10, dMod100 = daysLeft % 100;
+        const dWord = (dMod10 === 1 && dMod100 !== 11) ? 'день' : (dMod10 >= 2 && dMod10 <= 4 && (dMod100 < 10 || dMod100 >= 20)) ? 'дня' : 'дней';
+        nyText.innerHTML = `До Нового года осталось <strong>${daysLeft} ${dWord}</strong> — успейте привести форму в порядок вкусно и без диет со скидкой <strong>−10%</strong>!`;
+      }
+    }
+    if (nyCourseBtn) {
+      nyCourseBtn.addEventListener('click', () => {
+        const twoWeeksBtn = document.querySelector('[data-billing="twoweeks"]');
+        if (twoWeeksBtn) twoWeeksBtn.click();
+      });
+    }
+
+    // 2. Real-time Tomsk Next Delivery Calculator (Tue=2, Thu=4, Sat=6, Sun=0; cutoff = 1 day before at 17:00 Tomsk)
+    const nextDelEl = document.getElementById('nextDeliveryDate');
+    const nextDeadEl = document.getElementById('nextDeliveryDeadline');
+    if (nextDelEl && nextDeadEl) {
+      const deliveryWeekdays = [0, 2, 4, 6]; // Sun, Tue, Thu, Sat
+      const dayNamesAcc = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+      const dayNamesGen = ['воскресенья', 'понедельника', 'вторника', 'среды', 'четверга', 'пятницы', 'субботы'];
+      const monthsGen = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+
+      let chosenDel = null;
+      let chosenCutoff = null;
+
+      for (let addDays = 1; addDays <= 8; addDays++) {
+        const candMs = tomskMs + addDays * 86400000;
+        const cand = new Date(candMs);
+        const wd = cand.getUTCDay();
+        if (!deliveryWeekdays.includes(wd)) continue;
+
+        // Cutoff is (cand date - 1 day) at 17:00 Tomsk
+        const cutoffMs = Date.UTC(cand.getUTCFullYear(), cand.getUTCMonth(), cand.getUTCDate() - 1, 17, 0, 0);
+        if (tomskMs < cutoffMs) {
+          chosenDel = cand;
+          chosenCutoff = new Date(cutoffMs);
+          const diffMin = Math.max(1, Math.floor((cutoffMs - tomskMs) / 60000));
+          const dh = Math.floor(diffMin / 60);
+          const dm = diffMin % 60;
+          const packDays = (wd === 6) ? 'рацион на 1 день' : 'рацион на 2 дня';
+          nextDelEl.textContent = `${dayNamesAcc[wd]}, ${cand.getUTCDate()} ${monthsGen[cand.getUTCMonth()]} · 18:00–22:00 (${packDays})`;
+          const timeLeftStr = dh > 24 ? `${Math.floor(dh / 24)} дн. ${dh % 24} ч.` : `${dh} ч. ${dm} мин.`;
+          nextDeadEl.textContent = `Запись до ${dayNamesGen[chosenCutoff.getUTCDay()]} 17:00 (осталось ${timeLeftStr})`;
+          break;
+        }
+      }
+    }
+
+    // 3. Trial Order Button
+    const trialBtn = document.getElementById('trialOrderBtn');
+    if (trialBtn) {
+      trialBtn.addEventListener('click', () => {
+        openOrderModal('general');
+        currentOrderText = 'Здравствуйте! Хочу заказать пробный рацион PP TOMSK на 1–2 дня на ближайшую доставку. Подскажите, пожалуйста, актуальное меню!';
+        if (modalSelectedLabel) modalSelectedLabel.textContent = 'Пробный рацион на 1–2 дня';
+        if (modalSelectedMeta) modalSelectedMeta.textContent = 'От 1 000 ₽/день · Бесплатная доставка 18:00–22:00';
+        const modalTgOrderBtn = document.getElementById('modalTgOrderBtn');
+        if (modalTgOrderBtn) {
+          modalTgOrderBtn.href = 'https://t.me/pp_tomsk_zakaz?text=' + encodeURIComponent(currentOrderText);
+        }
+      });
+    }
+
+    // 4. Quick Lead Form ("Оставьте контакт — напишем за 5 минут")
+    const qlForm = document.getElementById('quickLeadForm');
+    if (qlForm) {
+      qlForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = (document.getElementById('qlName')?.value || '').trim();
+        const phone = (document.getElementById('qlPhone')?.value || '').trim();
+        const tariff = document.getElementById('qlTariff')?.value || '';
+        const channel = document.getElementById('qlChannel')?.value || 'tg';
+        const msg = `Здравствуйте! Меня зовут ${name}, мой контакт для связи: ${phone}. Интересует: ${tariff}. Напишите мне, пожалуйста!`;
+
+        if (typeof ym === 'function') {
+          try { ym(114298895, 'reachGoal', 'quick_lead_form'); } catch (_) {}
+        }
+        copyTextToClipboard(msg, 'Заявка скопирована и открывается чат с менеджером!');
+
+        let targetUrl = 'https://t.me/pp_tomsk_zakaz?text=' + encodeURIComponent(msg);
+        if (channel === 'max') {
+          targetUrl = 'https://max.ru/u/f9LHodD0cOKltUm-97KanH05-3f_t5B6QdtOZZHx1U90Er9B9gcWv1d9wYU';
+        } else if (channel === 'vk') {
+          targetUrl = 'https://vk.ru/pravilnoepitanietomsk';
+        }
+        window.open(targetUrl, '_blank', 'noopener');
+      });
+    }
+  })();
 
 </script>
 </body>
