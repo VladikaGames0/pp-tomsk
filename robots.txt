@@ -1,3 +1,10 @@
+User-agent: Yandex
+Allow: /
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&erid /
+Clean-param: yclid&ymclid&ysclid&ybaip&_openstat /
+Clean-param: vk_ref&vk_source&from&fbclid&gclid /
+
 User-agent: *
 Allow: /
+
 Sitemap: https://pp-tomsk.ru/sitemap.xml
