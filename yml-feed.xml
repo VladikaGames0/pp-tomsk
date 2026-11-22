@@ -25,7 +25,6 @@
         <currencyId>RUR</currencyId>
         <categoryId>1</categoryId>
         <picture>https://pp-tomsk.ru/feed-images/dish-salad-microgreens.jpg</picture>
-        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
         <store>false</store>
         <pickup>true</pickup>
         <delivery>true</delivery>
@@ -47,7 +46,6 @@
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
         <picture>https://pp-tomsk.ru/feed-images/dish-greek-salad.jpg</picture>
-        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
         <store>false</store>
         <pickup>true</pickup>
         <delivery>true</delivery>
@@ -72,7 +70,6 @@
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
         <picture>https://pp-tomsk.ru/feed-images/dish-omelette-cheese.jpg</picture>
-        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
         <store>false</store>
         <pickup>true</pickup>
         <delivery>true</delivery>
@@ -97,7 +94,6 @@
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
         <picture>https://pp-tomsk.ru/feed-images/dish-skewers-veggies.jpg</picture>
-        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
         <store>false</store>
         <pickup>true</pickup>
         <delivery>true</delivery>
@@ -122,7 +118,6 @@
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
         <picture>https://pp-tomsk.ru/feed-images/dish-teriyaki-rice.jpg</picture>
-        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
         <store>false</store>
         <pickup>true</pickup>
         <delivery>true</delivery>
@@ -147,7 +142,6 @@
         <currencyId>RUR</currencyId>
         <categoryId>2</categoryId>
         <picture>https://pp-tomsk.ru/feed-images/dish-seafood-caviar.jpg</picture>
-        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
         <store>false</store>
         <pickup>true</pickup>
         <delivery>true</delivery>
@@ -173,7 +167,6 @@
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
         <picture>https://pp-tomsk.ru/feed-images/dish-cutlet-frittata.jpg</picture>
-        <picture>https://pp-tomsk.ru/feed-images/dish-greek-salad.jpg</picture>
         <store>false</store>
         <pickup>true</pickup>
         <delivery>true</delivery>
@@ -197,7 +190,6 @@
         <currencyId>RUR</currencyId>
         <categoryId>3</categoryId>
         <picture>https://pp-tomsk.ru/feed-images/dish-red-velvet.jpg</picture>
-        <picture>https://pp-tomsk.ru/feed-images/dish-skewers-veggies.jpg</picture>
         <store>false</store>
         <pickup>true</pickup>
         <delivery>true</delivery>
