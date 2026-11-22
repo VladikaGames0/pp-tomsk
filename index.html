@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
+    try{if(localStorage.getItem('pp_tomsk_cookie_ok_v1')==='essential')window['disableYaCounter114298895']=true;}catch(_){}
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
@@ -87,11 +88,11 @@
           "offerCount": "6",
           "offers": [
             { "@type": "Offer", "name": "Пробный рацион на 1–2 дня (любая программа 1000–2500 ккал)", "price": "1000", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#quickLeadForm" },
-            { "@type": "Offer", "name": "Рацион Light 1000 ккал (3 блюда в день, снижение веса)", "price": "1000", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#tariffs" },
-            { "@type": "Offer", "name": "Рацион Slim 1300 ккал (4 блюда в день, похудение)", "price": "1150", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#tariffs" },
-            { "@type": "Offer", "name": "Рацион Balance 1500 ккал (5 блюд в день, поддержание формы)", "price": "1350", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#tariffs" },
-            { "@type": "Offer", "name": "Рацион Fit 2000 ккал (5 блюд в день, тонус и тренировки)", "price": "1550", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#tariffs" },
-            { "@type": "Offer", "name": "Рацион Power 2500 ккал (5 блюд в день, набор мышечной массы)", "price": "1750", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#tariffs" }
+            { "@type": "Offer", "name": "Рацион «Лёгкий» (Light) 1000 ккал (3 блюда в день, снижение веса)", "price": "1000", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#tariffs" },
+            { "@type": "Offer", "name": "Рацион «Стройность» (Slim) 1300 ккал (4 блюда в день, похудение)", "price": "1150", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#tariffs" },
+            { "@type": "Offer", "name": "Рацион «Баланс» (Balance) 1500 ккал (5 блюд в день, поддержание формы)", "price": "1350", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#tariffs" },
+            { "@type": "Offer", "name": "Рацион «Фитнес» (Fit) 2000 ккал (5 блюд в день, тонус и тренировки)", "price": "1550", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#tariffs" },
+            { "@type": "Offer", "name": "Рацион «Сила» (Power) 2500 ккал (5 блюд в день, набор мышечной массы)", "price": "1750", "priceCurrency": "RUB", "url": "https://pp-tomsk.ru/#tariffs" }
           ]
         }
       },
@@ -136,9 +137,9 @@
     ]
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/fonts.css" />
   <style>
 
 /* ==========================================================================
@@ -3099,6 +3100,64 @@ button {
   color: rgba(210, 226, 216, 0.56);
 }
 
+.consent-check {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: rgba(226, 238, 229, 0.78);
+  cursor: pointer;
+  user-select: none;
+}
+.consent-check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  flex-shrink: 0;
+  accent-color: #62b836;
+  cursor: pointer;
+}
+.consent-check a {
+  color: #8ce561;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.consent-check--modal {
+  margin-top: 10px;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.68);
+}
+.footer-legal-note {
+  width: 100%;
+  padding-top: 12px;
+  margin-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: rgba(196, 214, 201, 0.56);
+}
+.cookie-notice__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.cookie-notice__btn--ghost {
+  background: transparent;
+  color: rgba(228, 239, 231, 0.84);
+  border: 1px solid rgba(228, 239, 231, 0.25);
+  font-weight: 700;
+}
+@media (max-width: 680px) {
+  .cookie-notice__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+
 @media (max-width: 1140px) {
   .reviews-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3453,7 +3512,7 @@ html, body {
         <a href="#menu" class="mobile-drawer__link">Меню и живые фото</a>
         <a href="#reviews" class="mobile-drawer__link">Отзывы клиентов ★ 5.0</a>
         <a href="#delivery" class="mobile-drawer__link">Условия доставки</a>
-        <a href="#faq" class="mobile-drawer__link">Частые вопросы (FAQ)</a>
+        <a href="#faq" class="mobile-drawer__link">Частые вопросы</a>
         <a href="#contacts" class="mobile-drawer__link">Контакты и соцсети</a>
       </nav>
       <div class="mobile-drawer__contacts">
@@ -3700,7 +3759,7 @@ html, body {
 
               <div class="calc-rec-box">
                 <div class="calc-rec-box__tag">Рекомендованный рацион PP-TOMSK</div>
-                <div class="calc-rec-box__title" id="calcRecTitle">Тариф Balance · 1 500 ккал (5 блюд)</div>
+                <div class="calc-rec-box__title" id="calcRecTitle">Тариф «Баланс» (Balance) · 1 500 ккал (5 блюд)</div>
                 <div class="calc-rec-box__price" id="calcRecPrice">
                   1 350 ₽ / день · <strong>1 215 ₽ / день при заказе на 2 недели (−10%)</strong>
                 </div>
@@ -3748,7 +3807,7 @@ html, body {
           <article class="tariff-card" data-kcal="1000">
             <div>
               <div class="tariff-card__top-row">
-                <span class="tariff-card__tier">Тариф Light</span>
+                <span class="tariff-card__tier">Лёгкий · Light</span>
                 <span class="tariff-card__meals-pill">3 блюда в день</span>
               </div>
               <h3 class="tariff-card__kcal">1 000 <small>ккал</small></h3>
@@ -3796,7 +3855,7 @@ html, body {
           <article class="tariff-card" data-kcal="1300">
             <div>
               <div class="tariff-card__top-row">
-                <span class="tariff-card__tier">Тариф Slim</span>
+                <span class="tariff-card__tier">Стройность · Slim</span>
                 <span class="tariff-card__meals-pill">4 блюда в день</span>
               </div>
               <h3 class="tariff-card__kcal">1 300 <small>ккал</small></h3>
@@ -3845,7 +3904,7 @@ html, body {
             <span class="tariff-card__popular">★ Хит выбора</span>
             <div>
               <div class="tariff-card__top-row">
-                <span class="tariff-card__tier">Тариф Balance</span>
+                <span class="tariff-card__tier">Баланс · Balance</span>
                 <span class="tariff-card__meals-pill">5 блюд в день</span>
               </div>
               <h3 class="tariff-card__kcal">1 500 <small>ккал</small></h3>
@@ -3893,7 +3952,7 @@ html, body {
           <article class="tariff-card" data-kcal="2000">
             <div>
               <div class="tariff-card__top-row">
-                <span class="tariff-card__tier">Тариф Fit</span>
+                <span class="tariff-card__tier">Фитнес · Fit</span>
                 <span class="tariff-card__meals-pill">5 блюд в день</span>
               </div>
               <h3 class="tariff-card__kcal">2 000 <small>ккал</small></h3>
@@ -3941,7 +4000,7 @@ html, body {
           <article class="tariff-card" data-kcal="2500">
             <div>
               <div class="tariff-card__top-row">
-                <span class="tariff-card__tier">Тариф Power</span>
+                <span class="tariff-card__tier">Сила · Power</span>
                 <span class="tariff-card__meals-pill">5 блюд в день</span>
               </div>
               <h3 class="tariff-card__kcal">2 500 <small>ккал</small></h3>
@@ -4162,12 +4221,12 @@ html, body {
             <div>
               <div class="review-card__stars">★★★★★</div>
               <p class="review-card__text">
-                «Заказываю рацион Balance 1500 уже второй месяц. Огромный плюс — вообще нет сухой однообразной грудки! Шашлычки, рыба, салаты со свежей зеленью, а от десерта "Красный бархат" без сахара просто в восторге. Минус 4,5 кг без голода!»
+                «Заказываю рацион «Баланс» 1500 уже второй месяц. Огромный плюс — вообще нет сухой однообразной грудки! Шашлычки, рыба, салаты со свежей зеленью, а от десерта "Красный бархат" без сахара просто в восторге. Минус 4,5 кг без голода!»
               </p>
             </div>
             <div class="review-card__author">
               <strong>Екатерина М.</strong>
-              <span class="review-card__tag">Balance · 1 500 ккал</span>
+              <span class="review-card__tag">Баланс · 1 500 ккал</span>
             </div>
           </article>
 
@@ -4175,12 +4234,12 @@ html, body {
             <div>
               <div class="review-card__stars">★★★★★</div>
               <p class="review-card__text">
-                «Брал Fit 2000 под зал, чтобы добирать белок и не стоять вечером у плиты после работы. Порции реально сытные, привозят вечером чётко в интервал, утром просто закинул контейнеры в сумку и уехал в офис. Сплошная экономия времени!»
+                «Брал «Фитнес» 2000 под зал, чтобы добирать белок и не стоять вечером у плиты после работы. Порции реально сытные, привозят вечером чётко в интервал, утром просто закинул контейнеры в сумку и уехал в офис. Сплошная экономия времени!»
               </p>
             </div>
             <div class="review-card__author">
               <strong>Дмитрий К.</strong>
-              <span class="review-card__tag">Fit · 2 000 ккал</span>
+              <span class="review-card__tag">Фитнес · 2 000 ккал</span>
             </div>
           </article>
 
@@ -4193,7 +4252,7 @@ html, body {
             </div>
             <div class="review-card__author">
               <strong>Анна В.</strong>
-              <span class="review-card__tag">Slim · 1 300 ккал</span>
+              <span class="review-card__tag">Стройность · 1 300 ккал</span>
             </div>
           </article>
 
@@ -4201,7 +4260,7 @@ html, body {
             <div>
               <div class="review-card__stars">★★★★★</div>
               <p class="review-card__text">
-                «Заказываем вдвоём с мужем (мне 1500, ему Power 2500). По деньгам со скидкой выходит даже выгоднее, чем мы раньше оставляли в супермаркетах и доставках роллов, зато дома всегда чистая кухня и свежая домашняя еда!»
+                «Заказываем вдвоём с мужем (мне 1500, ему «Силу» 2500). По деньгам со скидкой выходит даже выгоднее, чем мы раньше оставляли в супермаркетах и доставках роллов, зато дома всегда чистая кухня и свежая домашняя еда!»
               </p>
             </div>
             <div class="review-card__author">
@@ -4450,11 +4509,11 @@ html, body {
             <select id="qlTariff">
               <option value="Пробный заказ на 1–2 дня">Пробный заказ на 1–2 дня</option>
               <option value="Помогите подобрать калорийность">Помогите подобрать КБЖУ</option>
-              <option value="Balance 1500 ккал (Хит, 5 блюд)" selected>Balance 1500 ккал ★ Хит</option>
-              <option value="Light 1000 ккал (3 блюда)">Light 1000 ккал (от 900 ₽)</option>
-              <option value="Slim 1300 ккал (4 блюда)">Slim 1300 ккал (от 1 035 ₽)</option>
-              <option value="Fit 2000 ккал (5 блюд)">Fit 2000 ккал (от 1 395 ₽)</option>
-              <option value="Power 2500 ккал (5 блюд)">Power 2500 ккал (от 1 575 ₽)</option>
+              <option value="Balance 1500 ккал (Хит, 5 блюд)" selected>Баланс (Balance) · 1500 ккал ★ Хит</option>
+              <option value="Light 1000 ккал (3 блюда)">Лёгкий (Light) · 1000 ккал (от 900 ₽)</option>
+              <option value="Slim 1300 ккал (4 блюда)">Стройность (Slim) · 1300 ккал (от 1 035 ₽)</option>
+              <option value="Fit 2000 ккал (5 блюд)">Фитнес (Fit) · 2000 ккал (от 1 395 ₽)</option>
+              <option value="Power 2500 ккал (5 блюд)">Сила (Power) · 2500 ккал (от 1 575 ₽)</option>
             </select>
           </div>
           <div class="ql-field">
@@ -4473,7 +4532,10 @@ html, body {
           </div>
         </div>
         <div class="ql-status" id="qlStatus" role="status" aria-live="polite" style="display:none;"></div>
-        <p class="ql-footnote">Нажимая «Жду сообщения →», вы даёте согласие на обработку персональных данных согласно <a href="/privacy.html" style="color:inherit; text-decoration:underline; text-underline-offset:2px;">Политике конфиденциальности</a>. Без спама и рассылок.</p>
+        <label class="consent-check" for="qlConsent">
+          <input type="checkbox" id="qlConsent" required />
+          <span>Я даю <a href="/consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> в соответствии с <a href="/privacy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a> (без рекламных рассылок).</span>
+        </label>
       </form>
 
       <!-- Крупный блок с телефоном -->
@@ -4562,11 +4624,11 @@ html, body {
           <strong>PP-TOMSK</strong> — сервис доставки готовой здоровой еды на день и неделю по г. Томску (производство: пер. Луговой, 16; приём заказов ежедневно с 10:00 до 22:00 по тел. 8-923-433-11-83). Все рационы готовятся утром в день доставки из свежих продуктов без белого сахара и усилителей вкуса, с точным подсчётом калорий, белков, жиров и углеводов (КБЖУ) и 8-недельным разнообразным меню:
         </p>
         <ul class="seo-ai-summary__list">
-          <li><strong>LIGHT (1 000 ккал, 3 блюда)</strong> — быстрое похудение: 1 000 ₽/день (900 ₽ от 2 недель)</li>
-          <li><strong>SLIM (1 300 ккал, 4 блюда)</strong> — комфортное снижение веса: 1 150 ₽/день (1 035 ₽ от 2 недель)</li>
-          <li><strong>BALANCE (1 500 ккал, 5 блюд)</strong> — поддержание формы: 1 350 ₽/день (1 215 ₽ от 2 недель)</li>
-          <li><strong>FIT (2 000 ккал, 5 блюд)</strong> — активный ритм и тонус: 1 550 ₽/день (1 395 ₽ от 2 недель)</li>
-          <li><strong>POWER (2 500 ккал, 5 блюд)</strong> — спорт и набор массы: 1 750 ₽/день (1 575 ₽ от 2 недель)</li>
+          <li><strong>Лёгкий / Light (1 000 ккал, 3 блюда)</strong> — быстрое похудение: 1 000 ₽/день (900 ₽ от 2 недель)</li>
+          <li><strong>Стройность / Slim (1 300 ккал, 4 блюда)</strong> — комфортное снижение веса: 1 150 ₽/день (1 035 ₽ от 2 недель)</li>
+          <li><strong>Баланс / Balance (1 500 ккал, 5 блюд)</strong> — поддержание формы: 1 350 ₽/день (1 215 ₽ от 2 недель)</li>
+          <li><strong>Фитнес / Fit (2 000 ккал, 5 блюд)</strong> — активный ритм и тонус: 1 550 ₽/день (1 395 ₽ от 2 недель)</li>
+          <li><strong>Сила / Power (2 500 ккал, 5 блюд)</strong> — спорт и набор массы: 1 750 ₽/день (1 575 ₽ от 2 недель)</li>
           <li><strong>Пробный рацион на 1–2 дня</strong> — любой тариф на тест-драйв от 1 000 ₽/день с бесплатной доставкой по Томску (Вт, Чт, Сб, Вс с 18:00 до 22:00)</li>
         </ul>
       </section>
@@ -4579,8 +4641,14 @@ html, body {
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 <strong>PP-TOMSK</strong> — Доставка правильного питания по г. Томску.</div>
-        <div><a href="/privacy.html" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">Политика обработки персональных данных (152-ФЗ)</a></div>
+        <div>© 2026 <strong>PP-TOMSK</strong> — Доставка готовых рационов правильного питания по г. Томску · Исполнитель: самозанятая (плательщик НПД) Ермолова Наталья Владимировна, ИНН 701712378308.</div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="/privacy.html" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">Политика конфиденциальности (152-ФЗ)</a>
+          <a href="/consent.html" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">Согласие на обработку ПДн</a>
+        </div>
+        <div class="footer-legal-note">
+          Информация и цены на сайте носят справочный характер и не являются публичной офертой (ст. 437 ГК РФ). Готовые рационы сбалансированного питания не являются специализированным лечебным или диетическим профилактическим питанием. При наличии пищевой аллергии или индивидуальной непереносимости отдельных продуктов обязательно предупредите менеджера при оформлении заказа.
+        </div>
       </div>
     </div>
   </footer>
@@ -4630,7 +4698,10 @@ html, body {
           </button>
         </div>
         <div class="ql-status" id="mlStatus" role="status" aria-live="polite" style="display:none; margin-top:12px; padding:11px 14px; font-size:13px;"></div>
-        <div style="margin-top:8px; font-size:11.5px; color:rgba(255,255,255,0.52); line-height:1.4;">Нажимая «Жду сообщения →», вы соглашаетесь с <a href="/privacy.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.78); text-decoration:underline;">Политикой конфиденциальности</a>.</div>
+        <label class="consent-check consent-check--modal" for="mlConsent">
+          <input type="checkbox" id="mlConsent" required />
+          <span>Я даю <a href="/consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> согласно <a href="/privacy.html" target="_blank" rel="noopener">Политике конфиденциальности</a>.</span>
+        </label>
       </form>
 
       <div class="modal-divider">или напишите / позвоните сами</div>
@@ -4706,11 +4777,11 @@ html, body {
   'use strict';
 
   const TARIFFS = {
-    '1000': { name: 'LIGHT · 1 000 ккал', kcal: 1000, meals: 3, price: 1000 },
-    '1300': { name: 'SLIM · 1 300 ккал', kcal: 1300, meals: 4, price: 1150 },
-    '1500': { name: 'BALANCE · 1 500 ккал', kcal: 1500, meals: 5, price: 1350 },
-    '2000': { name: 'FIT · 2 000 ккал', kcal: 2000, meals: 5, price: 1550 },
-    '2500': { name: 'POWER · 2 500 ккал', kcal: 2500, meals: 5, price: 1750 }
+    '1000': { name: 'Лёгкий (Light) · 1 000 ккал', kcal: 1000, meals: 3, price: 1000 },
+    '1300': { name: 'Стройность (Slim) · 1 300 ккал', kcal: 1300, meals: 4, price: 1150 },
+    '1500': { name: 'Баланс (Balance) · 1 500 ккал', kcal: 1500, meals: 5, price: 1350 },
+    '2000': { name: 'Фитнес (Fit) · 2 000 ккал', kcal: 2000, meals: 5, price: 1550 },
+    '2500': { name: 'Сила (Power) · 2 500 ккал', kcal: 2500, meals: 5, price: 1750 }
   };
 
   // Authentic PP_TOMSK weekly menu data (from 8-week rotation)
@@ -5123,11 +5194,11 @@ html, body {
 
     let sex = 'f';
     const plans = [
-      { key: '1000', code: 'Light', kcal: 1000, meals: '3 блюда', price: 1000, disc: 900 },
-      { key: '1300', code: 'Slim', kcal: 1300, meals: '4 блюда', price: 1150, disc: 1035 },
-      { key: '1500', code: 'Balance', kcal: 1500, meals: '5 блюд', price: 1350, disc: 1215 },
-      { key: '2000', code: 'Fit', kcal: 2000, meals: '5 блюд', price: 1550, disc: 1395 },
-      { key: '2500', code: 'Power', kcal: 2500, meals: '5 блюд', price: 1750, disc: 1575 }
+      { key: '1000', code: '«Лёгкий» (Light)', kcal: 1000, meals: '3 блюда', price: 1000, disc: 900 },
+      { key: '1300', code: '«Стройность» (Slim)', kcal: 1300, meals: '4 блюда', price: 1150, disc: 1035 },
+      { key: '1500', code: '«Баланс» (Balance)', kcal: 1500, meals: '5 блюд', price: 1350, disc: 1215 },
+      { key: '2000', code: '«Фитнес» (Fit)', kcal: 2000, meals: '5 блюд', price: 1550, disc: 1395 },
+      { key: '2500', code: '«Сила» (Power)', kcal: 2500, meals: '5 блюд', price: 1750, disc: 1575 }
     ];
 
     function recalc() {
@@ -5397,12 +5468,16 @@ html, body {
 
     // Shared CRM Sender (used by BOTH #quickLeadForm and #modalLeadForm)
     async function sendLeadToCrm(opts) {
-      const { nameEl, phoneEl, channelEl, websiteEl, submitBtn, statusBox, tariffText, formPlace, goalId } = opts;
+      const { nameEl, phoneEl, channelEl, consentEl, websiteEl, submitBtn, statusBox, tariffText, formPlace, goalId } = opts;
       const name = (nameEl?.value || '').trim();
       const phone = (phoneEl?.value || '').trim();
       const channel = channelEl?.value || 'tg';
       const website = websiteEl?.value || '';
       if (!name || !phone) return;
+      if (consentEl && !consentEl.checked) {
+        consentEl.focus();
+        return;
+      }
 
       const channelLabels = { tg: 'Telegram', vk: 'ВКонтакте', call: 'по телефону', max: 'MAX' };
       const channelLabel = channelLabels[channel] || 'мессенджер';
@@ -5470,6 +5545,7 @@ html, body {
 
         if (nameEl) nameEl.value = '';
         if (phoneEl) phoneEl.value = '';
+        if (consentEl) consentEl.checked = false;
 
         setTimeout(() => {
           if (submitBtn) {
@@ -5511,6 +5587,7 @@ html, body {
           nameEl: document.getElementById('qlName'),
           phoneEl: document.getElementById('qlPhone'),
           channelEl: document.getElementById('qlChannel'),
+          consentEl: document.getElementById('qlConsent'),
           websiteEl: document.getElementById('qlWebsite'),
           submitBtn: document.getElementById('qlSubmitBtn'),
           statusBox: document.getElementById('qlStatus'),
@@ -5533,6 +5610,7 @@ html, body {
           nameEl: document.getElementById('mlName'),
           phoneEl: document.getElementById('mlPhone'),
           channelEl: document.getElementById('mlChannel'),
+          consentEl: document.getElementById('mlConsent'),
           websiteEl: document.getElementById('mlWebsite'),
           submitBtn: document.getElementById('mlSubmitBtn'),
           statusBox: document.getElementById('mlStatus'),
@@ -5549,21 +5627,34 @@ html, body {
   <!-- Уведомление об использовании файлов cookie (152-ФЗ) -->
   <div class="cookie-notice" id="cookieNotice" role="region" aria-label="Уведомление о файлах cookie">
     <div>
-      Мы используем файлы cookie и Яндекс.Метрику для удобной работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="/privacy.html">Политикой конфиденциальности</a>.
+      Мы используем файлы cookie и российскую веб-аналитику Яндекс.Метрика для удобной работы сайта согласно <a href="/privacy.html">Политике конфиденциальности</a>.
     </div>
-    <button type="button" class="cookie-notice__btn" id="cookieAcceptBtn">Понятно</button>
+    <div class="cookie-notice__actions">
+      <button type="button" class="cookie-notice__btn cookie-notice__btn--ghost" id="cookieEssentialBtn">Только необходимые</button>
+      <button type="button" class="cookie-notice__btn" id="cookieAcceptBtn">Принять</button>
+    </div>
   </div>
   <script>
     (function() {
       try {
         var box = document.getElementById('cookieNotice');
-        var btn = document.getElementById('cookieAcceptBtn');
+        var btnAll = document.getElementById('cookieAcceptBtn');
+        var btnEss = document.getElementById('cookieEssentialBtn');
         if (box && !localStorage.getItem('pp_tomsk_cookie_ok_v1')) {
           box.classList.add('is-visible');
         }
-        if (btn && box) {
-          btn.addEventListener('click', function() {
-            try { localStorage.setItem('pp_tomsk_cookie_ok_v1', '1'); } catch (_) {}
+        if (btnAll && box) {
+          btnAll.addEventListener('click', function() {
+            try { localStorage.setItem('pp_tomsk_cookie_ok_v1', 'all'); } catch (_) {}
+            box.classList.remove('is-visible');
+          });
+        }
+        if (btnEss && box) {
+          btnEss.addEventListener('click', function() {
+            try {
+              localStorage.setItem('pp_tomsk_cookie_ok_v1', 'essential');
+              window['disableYaCounter114298895'] = true;
+            } catch (_) {}
             box.classList.remove('is-visible');
           });
         }
