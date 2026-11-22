@@ -3192,6 +3192,133 @@ button {
   }
 }
 
+/* === Mobile Layout Polish (360px–680px) === */
+html, body {
+  overflow-x: clip;
+}
+.trial-smart-card > *,
+.delivery-grid > *,
+.calc-grid > *,
+.hero__grid > *,
+.work-vs-delivery > *,
+.quick-lead-grid > * {
+  min-width: 0;
+}
+.schedule-row__dot {
+  flex-shrink: 0;
+}
+.schedule-row__sub,
+.schedule-row__pack,
+.schedule-row__hours {
+  white-space: nowrap;
+}
+.trial-smart-card .btn {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.3;
+}
+@media (max-width: 960px) {
+  .trial-smart-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+@media (max-width: 680px) {
+  .trial-smart-card {
+    padding: 22px 18px;
+    gap: 18px;
+    margin-top: 14px;
+    border-radius: 22px;
+  }
+  .trial-smart-card__title {
+    font-size: 20px;
+    line-height: 1.26;
+    overflow-wrap: break-word;
+  }
+  .trial-smart-card__desc {
+    font-size: 14.2px;
+    line-height: 1.52;
+  }
+  .trial-smart-card .btn,
+  .hero__cta-row .btn,
+  .phone-hero-card__btns .btn,
+  .quick-lead-card .btn {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .next-delivery-widget {
+    padding: 16px 16px;
+    border-radius: 16px;
+  }
+  .ndw-val {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+  .delivery-box {
+    padding: 22px 16px;
+    border-radius: 22px;
+  }
+  .wvd-card {
+    padding: 18px 16px;
+    gap: 12px;
+  }
+  .schedule-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 13px 14px;
+  }
+  .schedule-row__day {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+    font-size: 15.5px;
+  }
+  .schedule-row__meta {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 19px;
+    gap: 8px;
+  }
+  .schedule-row__pack {
+    font-size: 12.5px;
+    padding: 4px 11px;
+  }
+  .schedule-row__hours {
+    font-size: 13.5px;
+  }
+  .free-city-banner {
+    padding: 14px 15px;
+    align-items: flex-start;
+    gap: 11px;
+  }
+  .rule-item {
+    padding: 15px 16px;
+  }
+  .faq-item summary {
+    padding: 16px 18px;
+    font-size: 15px;
+  }
+  .faq-answer {
+    padding: 0 18px 18px;
+    font-size: 14.2px;
+  }
+  .seo-ai-summary {
+    padding: 20px 18px;
+  }
+  .seo-ai-summary__list {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 <body>
