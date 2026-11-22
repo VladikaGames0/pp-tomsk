@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-11-20 20:00">
+  <shop>
+    <name>PP-TOMSK</name>
+    <company>Сервис доставки правильного питания PP-TOMSK</company>
+    <url>https://pp-tomsk.ru/</url>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="1">Пробные рационы питания</category>
+      <category id="2">Дневные рационы с расчётом КБЖУ</category>
+      <category id="3">Курсы питания на 14 дней</category>
+    </categories>
+    <delivery-options>
+      <option cost="0" days="1" order-before="17"/>
+    </delivery-options>
+    <offers>
+      <offer id="pp-trial-1d" available="true">
+        <name>Пробный сет готового питания PP-TOMSK на 1 день (3–5 блюд с КБЖУ)</name>
+        <vendor>PP-TOMSK</vendor>
+        <vendorCode>PPT-TRIAL-01</vendorCode>
+        <url>https://pp-tomsk.ru/?utm_source=yandex_yml&amp;utm_medium=organic_feed&amp;utm_campaign=trial_1d#quickLeadForm</url>
+        <price>1000</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://pp-tomsk.ru/feed-images/dish-salad-microgreens.jpg</picture>
+        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
+        <store>false</store>
+        <pickup>true</pickup>
+        <delivery>true</delivery>
+        <shortDescription>Знакомство с кухней PP-TOMSK в Томске: полноценный дневной рацион из 3–5 свежих ресторанных блюд с точным расчётом калорий и БЖУ в герметичных контейнерах.</shortDescription>
+        <description>Пробный дневной сет готового правильного питания PP-TOMSK в Томске позволяет оценить вкус блюд, размер порций и свежесть продуктов перед переходом на регулярную программу. Повара готовят рацион утром в день привоза из охлаждённого мяса, птицы, рыбы, круп и свежих овощей без белого сахара и избытка масла. Все приёмы пищи упакованы в удобные герметичные контейнеры с маркировкой приёмов пищи и рассчитанным балансом белков, жиров и углеводов.</description>
+        <sales_notes>Оформление до 17:00 за день до доставки.</sales_notes>
+        <country_of_origin>Россия</country_of_origin>
+        <param name="Калорийность">1000–2500 ккал на выбор</param>
+        <param name="Количество блюд в день">3–5</param>
+        <param name="Длительность программы">1 день</param>
+        <param name="Город доставки">Томск</param>
+      </offer>
+      <offer id="pp-light-1000" available="true">
+        <name>Готовый рацион питания PP-TOMSK Light 1000 ккал (3 блюда в день)</name>
+        <vendor>PP-TOMSK</vendor>
+        <vendorCode>PPT-1000-1D</vendorCode>
+        <url>https://pp-tomsk.ru/pohudenie.html?utm_source=yandex_yml&amp;utm_medium=organic_feed&amp;utm_campaign=light_1000#tariffs</url>
+        <price>1000</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>2</categoryId>
+        <picture>https://pp-tomsk.ru/feed-images/dish-greek-salad.jpg</picture>
+        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
+        <store>false</store>
+        <pickup>true</pickup>
+        <delivery>true</delivery>
+        <shortDescription>Дневной рацион 1000 ккал из 3 сбалансированных блюд (завтрак, обед и лёгкий ужин) для бережного снижения веса. Ориентир БЖУ: белки 75 г, жиры 32 г, углеводы 102 г.</shortDescription>
+        <description>Готовый дневной рацион правильного питания PP-TOMSK Light на 1000 ккал разработан для активного и комфортного снижения веса без чувства тяжести и подсчёта калорий вручную. В состав входят три полноценных приёма пищи на день: завтрак, сытный обед и лёгкий белково-овощной ужин. Меню обновляется по циклу 8 недель без повторов, готовится утром в день привоза в Томске из натуральных фермерских продуктов, свежей зелени и нежного диетического мяса без белого сахара.</description>
+        <sales_notes>Оформление до 17:00 за день до доставки.</sales_notes>
+        <country_of_origin>Россия</country_of_origin>
+        <param name="Калорийность">1000 ккал</param>
+        <param name="Количество блюд в день">3</param>
+        <param name="Белки">75 г</param>
+        <param name="Жиры">32 г</param>
+        <param name="Углеводы">102 г</param>
+        <param name="Цель программы">Снижение веса</param>
+        <param name="Город доставки">Томск</param>
+      </offer>
+      <offer id="pp-slim-1300" available="true">
+        <name>Готовый рацион питания PP-TOMSK Slim 1300 ккал (4 блюда в день)</name>
+        <vendor>PP-TOMSK</vendor>
+        <vendorCode>PPT-1300-1D</vendorCode>
+        <url>https://pp-tomsk.ru/pohudenie.html?utm_source=yandex_yml&amp;utm_medium=organic_feed&amp;utm_campaign=slim_1300#tariffs</url>
+        <price>1150</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>2</categoryId>
+        <picture>https://pp-tomsk.ru/feed-images/dish-omelette-cheese.jpg</picture>
+        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
+        <store>false</store>
+        <pickup>true</pickup>
+        <delivery>true</delivery>
+        <shortDescription>Дневной рацион 1300 ккал из 4 блюд (завтрак, второй завтрак, обед и ужин) для плавного похудения без голода. Ориентир БЖУ: белки 95 г, жиры 42 г, углеводы 135 г.</shortDescription>
+        <description>Готовый дневной рацион правильного питания PP-TOMSK Slim на 1300 ккал создан для плавного и устойчивого уменьшения веса и объёмов без срывов и чувства голода. Программа включает четыре сбалансированных приёма пищи: завтрак, полезный второй завтрак, полноценный обед и ужин. Блюда готовятся утром из свежего филе птицы, говядины, рыбы, овощей и медленных углеводов без рафинированного сахара по разнообразному меню на 8 недель без повторов.</description>
+        <sales_notes>Оформление до 17:00 за день до доставки.</sales_notes>
+        <country_of_origin>Россия</country_of_origin>
+        <param name="Калорийность">1300 ккал</param>
+        <param name="Количество блюд в день">4</param>
+        <param name="Белки">95 г</param>
+        <param name="Жиры">42 г</param>
+        <param name="Углеводы">135 г</param>
+        <param name="Цель программы">Комфортное похудение</param>
+        <param name="Город доставки">Томск</param>
+      </offer>
+      <offer id="pp-balance-1500" available="true">
+        <name>Готовый рацион питания PP-TOMSK Balance 1500 ккал (5 блюд в день)</name>
+        <vendor>PP-TOMSK</vendor>
+        <vendorCode>PPT-1500-1D</vendorCode>
+        <url>https://pp-tomsk.ru/?utm_source=yandex_yml&amp;utm_medium=organic_feed&amp;utm_campaign=balance_1500#tariffs</url>
+        <price>1350</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>2</categoryId>
+        <picture>https://pp-tomsk.ru/feed-images/dish-skewers-veggies.jpg</picture>
+        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
+        <store>false</store>
+        <pickup>true</pickup>
+        <delivery>true</delivery>
+        <shortDescription>Полноценный 5-разовый дневной рацион 1500 ккал для поддержания стройности и энергии в течение всего дня. Ориентир БЖУ: белки 110 г, жиры 48 г, углеводы 155 г.</shortDescription>
+        <description>Сбалансированный дневной рацион правильного питания PP-TOMSK Balance на 1500 ккал подходит для поддержания стройной формы, мягкого контроля веса и продуктивного рабочего дня без готовки у плиты. В дневной набор входят пять приёмов пищи, включая основные горячие блюда, свежие салаты и натуральные десерты без белого сахара. Разнообразное меню на 8 недель готовится утром в день привоза по Томску и упаковано в порционные контейнеры с точным КБЖУ.</description>
+        <sales_notes>Оформление до 17:00 за день до доставки.</sales_notes>
+        <country_of_origin>Россия</country_of_origin>
+        <param name="Калорийность">1500 ккал</param>
+        <param name="Количество блюд в день">5</param>
+        <param name="Белки">110 г</param>
+        <param name="Жиры">48 г</param>
+        <param name="Углеводы">155 г</param>
+        <param name="Цель программы">Поддержание формы и тонус</param>
+        <param name="Город доставки">Томск</param>
+      </offer>
+      <offer id="pp-fit-2000" available="true">
+        <name>Готовый рацион питания PP-TOMSK Fit 2000 ккал (5 блюд в день)</name>
+        <vendor>PP-TOMSK</vendor>
+        <vendorCode>PPT-2000-1D</vendorCode>
+        <url>https://pp-tomsk.ru/sport-pitanie.html?utm_source=yandex_yml&amp;utm_medium=organic_feed&amp;utm_campaign=fit_2000#tariffs</url>
+        <price>1550</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>2</categoryId>
+        <picture>https://pp-tomsk.ru/feed-images/dish-teriyaki-rice.jpg</picture>
+        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
+        <store>false</store>
+        <pickup>true</pickup>
+        <delivery>true</delivery>
+        <shortDescription>Сытный 5-разовый рацион 2000 ккал для активного графика и регулярных тренировок (145 г белка в день). Ориентир БЖУ: белки 145 г, жиры 65 г, углеводы 208 г.</shortDescription>
+        <description>Готовый дневной рацион правильного питания PP-TOMSK Fit на 2000 ккал рассчитан на людей с активным ритмом жизни, регулярными тренировками в зале и высокой дневной нагрузкой. Пять сытных приёмов пищи содержат около 145 граммов качественного белка из мяса, птицы, рыбы и морепродуктов в сочетании со сложными углеводами и клетчаткой. Рационы готовятся в день привоза в Томске по циклу меню 8 недель без повторов и полностью закрывают дневную потребность в питании.</description>
+        <sales_notes>Оформление до 17:00 за день до доставки.</sales_notes>
+        <country_of_origin>Россия</country_of_origin>
+        <param name="Калорийность">2000 ккал</param>
+        <param name="Количество блюд в день">5</param>
+        <param name="Белки">145 г</param>
+        <param name="Жиры">65 г</param>
+        <param name="Углеводы">208 г</param>
+        <param name="Цель программы">Активный ритм и фитнес</param>
+        <param name="Город доставки">Томск</param>
+      </offer>
+      <offer id="pp-power-2500" available="true">
+        <name>Готовый рацион питания PP-TOMSK Power 2500 ккал (5 блюд в день)</name>
+        <vendor>PP-TOMSK</vendor>
+        <vendorCode>PPT-2500-1D</vendorCode>
+        <url>https://pp-tomsk.ru/sport-pitanie.html?utm_source=yandex_yml&amp;utm_medium=organic_feed&amp;utm_campaign=power_2500#tariffs</url>
+        <price>1750</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>2</categoryId>
+        <picture>https://pp-tomsk.ru/feed-images/dish-seafood-caviar.jpg</picture>
+        <picture>https://pp-tomsk.ru/hero-studio.jpg</picture>
+        <store>false</store>
+        <pickup>true</pickup>
+        <delivery>true</delivery>
+        <shortDescription>Усиленный спортивный рацион 2500 ккал из 5 больших блюд с высокой квотой белка (180 г) для тренировок и набора массы. БЖУ: белки 180 г, жиры 80 г, углеводы 265 г.</shortDescription>
+        <description>Спортивный дневной рацион правильного питания PP-TOMSK Power на 2500 ккал предназначен для интенсивных силовых тренировок, восстановления и качественного набора мышечной массы. Включает пять увеличенных порций из отборной говядины, птицы, красной рыбы, морепродуктов, цельнозерновых гарниров и полезных перекусов без белого сахара. Каждое блюдо проходит точный расчёт калорийности и БЖУ и готовится утром перед вечерним привозом по Томску.</description>
+        <sales_notes>Оформление до 17:00 за день до доставки.</sales_notes>
+        <country_of_origin>Россия</country_of_origin>
+        <param name="Калорийность">2500 ккал</param>
+        <param name="Количество блюд в день">5</param>
+        <param name="Белки">180 г</param>
+        <param name="Жиры">80 г</param>
+        <param name="Углеводы">265 г</param>
+        <param name="Цель программы">Спорт и набор мышечной массы</param>
+        <param name="Город доставки">Томск</param>
+      </offer>
+      <offer id="pp-light-1000-14d" available="true">
+        <name>Курс питания на 14 дней PP-TOMSK Light 1000 ккал (900 ₽ в день)</name>
+        <vendor>PP-TOMSK</vendor>
+        <vendorCode>PPT-1000-14D</vendorCode>
+        <url>https://pp-tomsk.ru/pohudenie.html?utm_source=yandex_yml&amp;utm_medium=organic_feed&amp;utm_campaign=light_1000_14d#tariffs</url>
+        <price>12600</price>
+        <oldprice>14000</oldprice>
+        <currencyId>RUR</currencyId>
+        <categoryId>3</categoryId>
+        <picture>https://pp-tomsk.ru/feed-images/dish-cutlet-frittata.jpg</picture>
+        <picture>https://pp-tomsk.ru/feed-images/dish-greek-salad.jpg</picture>
+        <store>false</store>
+        <pickup>true</pickup>
+        <delivery>true</delivery>
+        <shortDescription>Двухнедельный курс готового питания Light 1000 ккал (14 дней по 3 блюда в день, 900 ₽ за рацион дня) с регулярным вечерним привозом свежих блюд по Томску.</shortDescription>
+        <description>Двухнедельная программа готового правильного питания PP-TOMSK Light 1000 ккал рассчитана на 14 полных дней сбалансированного рациона по три блюда ежедневно (завтрак, обед и ужин). При выборе двухнедельного курса стоимость одного дневного рациона составляет 900 рублей в день. Свежие блюда готовятся партиями под каждый вечерний привоз в Томске (вторник, четверг, суббота и воскресенье) из натуральных продуктов с выверенным КБЖУ и разнообразным меню без повторов.</description>
+        <sales_notes>Оформление до 17:00 за день до доставки.</sales_notes>
+        <country_of_origin>Россия</country_of_origin>
+        <param name="Калорийность">1000 ккал</param>
+        <param name="Длительность программы">14 дней</param>
+        <param name="Количество блюд в день">3</param>
+        <param name="Стоимость одного дня в курсе">900 ₽</param>
+        <param name="Город доставки">Томск</param>
+      </offer>
+      <offer id="pp-balance-1500-14d" available="true">
+        <name>Курс питания на 14 дней PP-TOMSK Balance 1500 ккал (1215 ₽ в день)</name>
+        <vendor>PP-TOMSK</vendor>
+        <vendorCode>PPT-1500-14D</vendorCode>
+        <url>https://pp-tomsk.ru/?utm_source=yandex_yml&amp;utm_medium=organic_feed&amp;utm_campaign=balance_1500_14d#tariffs</url>
+        <price>17010</price>
+        <oldprice>18900</oldprice>
+        <currencyId>RUR</currencyId>
+        <categoryId>3</categoryId>
+        <picture>https://pp-tomsk.ru/feed-images/dish-red-velvet.jpg</picture>
+        <picture>https://pp-tomsk.ru/feed-images/dish-skewers-veggies.jpg</picture>
+        <store>false</store>
+        <pickup>true</pickup>
+        <delivery>true</delivery>
+        <shortDescription>Двухнедельный курс 5-разового питания Balance 1500 ккал (14 дней по 5 блюд в день, 1215 ₽ за рацион дня) с регулярным привозом свежих рационов по Томску.</shortDescription>
+        <description>Двухнедельная программа готового 5-разового питания PP-TOMSK Balance 1500 ккал включает 14 полных дневных рационов (70 разнообразных ресторанных блюд и десертов без белого сахара с подсчитанным КБЖУ). В рамках курса на две недели стоимость одного дня питания составляет 1215 рублей. Рационы готовятся утром в день каждого привоза по Томску и позволяют полностью освободить две недели от закупки продуктов, готовки и подсчёта калорий.</description>
+        <sales_notes>Оформление до 17:00 за день до доставки.</sales_notes>
+        <country_of_origin>Россия</country_of_origin>
+        <param name="Калорийность">1500 ккал</param>
+        <param name="Длительность программы">14 дней</param>
+        <param name="Количество блюд в день">5</param>
+        <param name="Стоимость одного дня в курсе">1215 ₽</param>
+        <param name="Город доставки">Томск</param>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>
