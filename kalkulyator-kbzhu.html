@@ -4177,7 +4177,7 @@ html, body {
           </div>
           <div class="ql-field">
             <label for="qlPhone">Телефон или @ник</label>
-            <input type="text" id="qlPhone" placeholder="+7 (999) 000-00-00, @ник или ВК" maxlength="80" required />
+            <input type="text" id="qlPhone" placeholder="+7 (999) 000-00-00 или @ник" maxlength="80" required />
           </div>
           <div class="ql-field">
             <label for="qlTariff">Какой рацион интересует</label>
@@ -4195,7 +4195,6 @@ html, body {
             <label for="qlChannel">Где вам написать?</label>
             <select id="qlChannel">
               <option value="tg" selected>Написать в Telegram</option>
-              <option value="vk">Написать ВКонтакте</option>
               <option value="call">Позвонить по телефону</option>
               <option value="max">Написать в MAX</option>
             </select>
@@ -4346,10 +4345,9 @@ html, body {
         <input type="text" id="mlWebsite" name="website" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px; opacity:0; pointer-events:none;" aria-hidden="true" />
         <div class="modal-lead-grid">
           <input type="text" id="mlName" placeholder="Ваше имя" maxlength="80" required />
-          <input type="text" id="mlPhone" placeholder="Телефон, @ник или ссылка ВК" maxlength="80" required />
+          <input type="text" id="mlPhone" placeholder="Телефон или @ник в ТГ" maxlength="80" required />
           <select id="mlChannel" aria-label="Где вам написать">
             <option value="tg" selected>Написать в Telegram</option>
-            <option value="vk">Написать ВКонтакте</option>
             <option value="call">Позвонить по телефону</option>
             <option value="max">Написать в MAX</option>
           </select>
@@ -5316,15 +5314,6 @@ html, body {
               window['disableYaCounter114298895'] = true;
             } catch (_) {}
             box.classList.remove('is-visible');
-          });
-        }
-        // Автовыбор «Написать ВКонтакте», если переход пришёл из ВК
-        var qs = (location.search || '').toLowerCase();
-        var ref = (document.referrer || '').toLowerCase();
-        if (qs.indexOf('utm_source=vk') !== -1 || ref.indexOf('vk.com') !== -1 || ref.indexOf('vk.ru') !== -1) {
-          ['qlChannel', 'mlChannel'].forEach(function(id) {
-            var el = document.getElementById(id);
-            if (el) el.value = 'vk';
           });
         }
       } catch (_) {}
