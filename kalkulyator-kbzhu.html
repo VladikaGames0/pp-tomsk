@@ -3061,24 +3061,7 @@ button {
   line-height: 1.5;
   color: rgba(196, 214, 201, 0.56);
 }
-.cookie-notice__actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-.cookie-notice__btn--ghost {
-  background: transparent;
-  color: rgba(228, 239, 231, 0.84);
-  border: 1px solid rgba(228, 239, 231, 0.25);
-  font-weight: 700;
-}
-@media (max-width: 680px) {
-  .cookie-notice__actions {
-    width: 100%;
-    justify-content: flex-end;
-  }
-}
+
 
 
 @media (max-width: 1140px) {
@@ -3336,6 +3319,10 @@ html, body {
   text-underline-offset: 2px;
 }
 .cookie-notice__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
   flex-shrink: 0;
   padding: 8px 18px;
   border-radius: 999px;
@@ -3351,6 +3338,21 @@ html, body {
   filter: brightness(1.06);
   transform: translateY(-1px);
 }
+.cookie-notice__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.cookie-notice__btn--ghost {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(228, 239, 231, 0.88);
+  border: 1px solid rgba(228, 239, 231, 0.26);
+  font-weight: 700;
+}
+.cookie-notice__btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
 @media (max-width: 680px) {
   .cookie-notice {
     bottom: 78px;
@@ -3362,9 +3364,18 @@ html, body {
     gap: 10px;
     font-size: 12.5px;
   }
+  .cookie-notice__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
   .cookie-notice__btn {
     width: 100%;
-    padding: 9px 14px;
+    padding: 9px 10px;
+    font-size: 12.5px;
+    white-space: nowrap;
+    text-align: center;
   }
 }
 
@@ -5285,7 +5296,7 @@ html, body {
       Мы используем файлы cookie и российскую веб-аналитику Яндекс.Метрика для удобной работы сайта согласно <a href="/privacy.html">Политике конфиденциальности</a>.
     </div>
     <div class="cookie-notice__actions">
-      <button type="button" class="cookie-notice__btn cookie-notice__btn--ghost" id="cookieEssentialBtn">Только необходимые</button>
+      <button type="button" class="cookie-notice__btn cookie-notice__btn--ghost" id="cookieEssentialBtn">Только базовые</button>
       <button type="button" class="cookie-notice__btn" id="cookieAcceptBtn">Принять</button>
     </div>
   </div>
